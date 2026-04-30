@@ -239,8 +239,8 @@ export default function Map() {
   const [userPos, setUserPos] = useState(null)
   const [statusMsg, setStatusMsg] = useState('')
   const [mapCmd, setMapCmd] = useState(null)
-  const [reportOpen, setReportOpen] = useState(false)
   const [reporting, setReporting] = useState(false)
+  const [confirmedType, setConfirmedType] = useState(null)
 
   // Crowd-validation state
   const [votedIds, setVotedIds] = useState(() => loadVotedIds())
@@ -323,11 +323,10 @@ export default function Map() {
 
   // Close the quick-report modal on Escape.
   useEffect(() => {
-    if (!reportOpen) return
-    function onKey(e) { if (e.key === 'Escape') setReportOpen(false) }
-    document.addEventListener('keydown', onKey)
-    return () => document.removeEventListener('keydown', onKey)
-  }, [reportOpen])
+    if (!confirmedType) return
+    const t = setTimeout(() => setConfirmedType(null), 2500)
+    return () => clearTimeout(t)
+  }, [confirmedType])
 
   function markVoted(id) {
     setVotedIds((prev) => {
@@ -448,24 +447,24 @@ export default function Map() {
   }
 
   async function quickReport(type) {
-    setReportOpen(false)
     setReporting(true)
-    setStatusMsg('Reporting…')
+    setConfirmedType(type)
+    setStatusMsg('')
     try {
-      const p = await getCurrentPosition({ timeoutMs: 5000 })
-      let lat, lng, fellBack = false
+      const p = await getCurrentPosition({ timeoutMs: 3000 })
+      let lat, lng
       if (p.source === 'geo') {
         lat = p.lat; lng = p.lng
       } else {
         const c = mapRef.current?.getCenter() ?? { lat: TORONTO_CENTER[0], lng: TORONTO_CENTER[1] }
-        lat = c.lat; lng = c.lng; fellBack = true
+        lat = c.lat; lng = c.lng
       }
       const hz = await createHazard({ lat, lng, type, severity: 'Moderate', description: '' })
       markOwnReport(hz.id)  // suppresses self-prompts for 24h
       setHazards((prev) => [...prev, hz])
       if (navigator.vibrate) navigator.vibrate(150)
-      setStatusMsg(fellBack ? `Reported ${type} at map centre` : `Reported ${type}`)
     } catch (err) {
+      setConfirmedType(null)
       setStatusMsg(err.message ?? 'Report failed')
     } finally {
       setReporting(false)
@@ -528,7 +527,7 @@ export default function Map() {
       </div>
 
       {/* Map */}
-      <div className="h-72 relative">
+      <div className="h-96 relative">
         <MapContainer
           center={TORONTO_CENTER}
           zoom={DEFAULT_ZOOM}
@@ -632,75 +631,47 @@ export default function Map() {
         </div>
       )}
 
-      {/* Nearby hazards list (full hazard set, untouched even when routing) */}
-      <div className="bg-white flex-1">
-        <div className="px-4 py-3 flex items-center justify-between">
-          <span className="text-sm font-semibold text-gray-700">All Reports</span>
-          <span className="text-xs text-gray-400">{hazards.length} total</span>
+      {/* Quick-report panel */}
+      <div className="bg-white border-t border-gray-200 px-4 py-3">
+        <p className="text-base font-bold text-gray-800 mb-2">Report a hazard</p>
+        <div className="grid grid-cols-4 gap-1.5">
+          {TYPES.map((t) => (
+            <button
+              key={t}
+              type="button"
+              onClick={() => quickReport(t)}
+              disabled={reporting}
+              className="flex flex-col items-center gap-0.5 py-2 rounded-lg border-t-2 bg-gray-50 active:bg-gray-100 transition-colors disabled:opacity-60"
+              style={{ borderTopColor: severityColor('Moderate').hex }}
+            >
+              <span className="text-xl leading-none">{TYPE_EMOJI[t]}</span>
+              <span className="text-xs font-medium text-gray-700">{TYPE_LABEL[t]}</span>
+            </button>
+          ))}
         </div>
-        {hazards.length === 0 ? (
-          <p className="px-4 py-4 text-sm text-gray-400 italic">No hazards reported yet — tap Report to add one.</p>
-        ) : (
-          <ul className="divide-y divide-gray-100">
-            {hazards.map((hz) => (
-              <li key={hz.id} className="flex items-center gap-3 px-4 py-3">
-                <span className="text-xl shrink-0">{TYPE_EMOJI[hz.type] ?? TYPE_EMOJI.other}</span>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium capitalize">{hz.type}</p>
-                  <p className="text-xs" style={{ color: severityColor(hz.severity).hex }}>
-                    {hz.severity ?? 'Moderate'} · {hz.lat.toFixed(4)}, {hz.lng.toFixed(4)}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
 
-      {/* Quick-report FAB — drops a hazard at current location with default severity.
-          The /report tab still offers the full form (description, severity choice). */}
-      <button
-        type="button"
-        onClick={() => setReportOpen(true)}
-        disabled={reporting}
-        aria-label="Quick report a hazard at my location"
-        className="fixed z-[1100] right-4 bottom-20 sm:right-[calc(50%-13rem)] w-14 h-14 rounded-full bg-orange-500 text-white text-3xl font-bold shadow-lg shadow-orange-300/60 active:scale-95 transition-transform disabled:opacity-60"
-      >
-        +
-      </button>
-
-      {reportOpen && (
+      {confirmedType && (
         <div className="fixed inset-0 z-[1200] flex items-center justify-center p-4">
-          <div
-            className="absolute inset-0 bg-black/50"
-            onClick={() => setReportOpen(false)}
-          />
-          <div className="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl p-5">
-            <h2 className="text-base font-semibold mb-3">Report a hazard</h2>
-            <p className="text-xs text-gray-500 mb-4">
-              Submits at your current location with severity <span className="font-semibold">Moderate</span>. Use the Report tab for a detailed form.
-            </p>
-            <div className="grid grid-cols-2 gap-2.5">
-              {TYPES.map((t) => (
-                <button
-                  key={t}
-                  type="button"
-                  onClick={() => quickReport(t)}
-                  className="flex flex-col items-center gap-1.5 py-4 rounded-xl border-2 border-transparent border-t-4 bg-gray-50 active:bg-gray-100 transition-colors"
-                  style={{ borderTopColor: severityColor('Moderate').hex }}
-                >
-                  <span className="text-3xl leading-none">{TYPE_EMOJI[t]}</span>
-                  <span className="text-sm font-semibold text-gray-700">{TYPE_LABEL[t]}</span>
-                </button>
-              ))}
+          <div className="absolute inset-0 bg-black/40" onClick={() => setConfirmedType(null)} />
+          <div className="relative bg-white rounded-2xl shadow-2xl px-8 py-10 flex flex-col items-center gap-4 w-full max-w-xs">
+            <div className="check-circle-anim">
+              <svg width="88" height="88" viewBox="0 0 52 52">
+                <circle cx="26" cy="26" r="25" fill="#dcfce7" stroke="#22c55e" strokeWidth="1.5" />
+                <path
+                  className="check-path-anim"
+                  fill="none"
+                  stroke="#16a34a"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M14 27 L22 35 L38 17"
+                />
+              </svg>
             </div>
-            <button
-              type="button"
-              onClick={() => setReportOpen(false)}
-              className="w-full mt-4 py-2.5 rounded-lg bg-gray-100 font-semibold text-sm text-gray-600 active:bg-gray-200 transition-colors"
-            >
-              Cancel
-            </button>
+            <p className="text-base font-semibold text-gray-800 text-center capitalize">
+              {confirmedType} successfully reported!
+            </p>
           </div>
         </div>
       )}
