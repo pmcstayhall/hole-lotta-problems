@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createHazard, getCurrentPosition } from '../lib/api'
 import { TYPES, SEVERITIES, TYPE_EMOJI, TYPE_LABEL } from '../lib/hazardStyles'
+import { markOwnReport } from '../lib/ownReports'
 
 export default function Report() {
   const navigate = useNavigate()
@@ -36,13 +37,14 @@ export default function Report() {
     setSubmitting(true)
     setError(null)
     try {
-      await createHazard({
+      const hz = await createHazard({
         lat: position.lat,
         lng: position.lng,
         type,
         severity,
         description,
       })
+      markOwnReport(hz.id)  // suppresses self-prompts for 24h
       setSuccess(true)
       if (navigator.vibrate) navigator.vibrate(150)
       setTimeout(() => navigate('/map'), 900)

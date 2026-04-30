@@ -55,9 +55,14 @@ def canned_route():
         return jsonify(json.load(f))
 
 
+def _is_visible(hz: dict) -> bool:
+    """Crowd-validation: hazard hides as soon as net dismisses exceed confirms."""
+    return hz.get("dismisses", 0) - hz.get("confirms", 0) <= 0
+
+
 @app.get("/api/hazards")
 def list_hazards():
-    return jsonify(hazards)
+    return jsonify([hz for hz in hazards if _is_visible(hz)])
 
 
 @app.post("/api/hazards")
@@ -88,9 +93,27 @@ def create_hazard():
         "severity": severity,
         "description": description[:500],
         "reportedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "confirms": 0,
+        "dismisses": 0,
     }
     hazards.append(hazard)
     return jsonify(hazard), 201
+
+
+@app.post("/api/hazards/<hazard_id>/vote")
+def vote_hazard(hazard_id: str):
+    body = request.get_json(silent=True) or {}
+    vote = body.get("vote")
+    if vote not in ("confirm", "dismiss"):
+        return jsonify(error="vote must be 'confirm' or 'dismiss'"), 400
+
+    hz = next((h for h in hazards if h["id"] == hazard_id), None)
+    if hz is None:
+        return jsonify(error="hazard not found"), 404
+
+    field = "confirms" if vote == "confirm" else "dismisses"
+    hz[field] = hz.get(field, 0) + 1
+    return jsonify({**hz, "visible": _is_visible(hz)})
 
 
 @app.get("/api/hazards/nearby")
@@ -104,6 +127,8 @@ def nearby_hazards():
 
     out = []
     for hz in hazards:
+        if not _is_visible(hz):
+            continue
         d = haversine_m(lat, lng, hz["lat"], hz["lng"])
         if d <= radius_m:
             out.append({**hz, "distanceM": round(d, 1)})
@@ -124,6 +149,8 @@ def hazards_along_route():
 
     out = []
     for hz in hazards:
+        if not _is_visible(hz):
+            continue
         pt = project_point(hz["lat"], hz["lng"])
         perp = line_m.distance(pt)
         if perp < ROUTE_BUFFER_M:

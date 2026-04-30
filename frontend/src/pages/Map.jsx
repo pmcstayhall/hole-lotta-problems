@@ -4,15 +4,32 @@ import L from 'leaflet'
 import {
   listHazards,
   createHazard,
+  voteHazard,
+  haversineM,
   nominatimSearch,
   fetchOSRMRoute,
   fetchHazardsAlongRoute,
   getCurrentPosition,
 } from '../lib/api'
 import { TYPES, TYPE_EMOJI, TYPE_LABEL, severityColor } from '../lib/hazardStyles'
+import { markOwnReport, loadFreshOwnReports } from '../lib/ownReports'
 
 const TORONTO_CENTER = [43.6532, -79.3832]
 const DEFAULT_ZOOM = 14
+const PROXIMITY_THRESHOLD_M = 80   // ask "still there?" within this radius
+const VOTED_KEY = 'hlp:votedHazards'
+const POLL_INTERVAL_MS = 5000      // refetch hazards from backend at this cadence
+
+function loadVotedIds() {
+  try {
+    const raw = localStorage.getItem(VOTED_KEY)
+    return new Set(raw ? JSON.parse(raw) : [])
+  } catch { return new Set() }
+}
+
+function persistVotedIds(set) {
+  try { localStorage.setItem(VOTED_KEY, JSON.stringify([...set])) } catch {}
+}
 
 // --- Marker icons ---
 function hazardIcon(hz) {
@@ -171,6 +188,46 @@ function AutocompleteInput({
   )
 }
 
+// --- Popup contents shown when a hazard marker is opened ---
+function HazardPopupContent({ hazard, hasVoted, onVote, routeMeta }) {
+  return (
+    <div className="text-sm min-w-[180px]">
+      <p className="font-semibold capitalize">{hazard.type}</p>
+      <p className="text-xs" style={{ color: severityColor(hazard.severity).hex }}>
+        {hazard.severity ?? 'Moderate'}
+      </p>
+      {routeMeta && <p className="text-xs text-gray-500 mt-1">{routeMeta}</p>}
+      {hazard.description && (
+        <p className="text-gray-600 text-xs mt-1">{hazard.description}</p>
+      )}
+      <p className="text-xs text-gray-500 mt-2">
+        <span className="text-green-600 font-semibold">{hazard.confirms ?? 0}</span> confirmed ·{' '}
+        <span className="text-red-600 font-semibold">{hazard.dismisses ?? 0}</span> dismissed
+      </p>
+      {hasVoted ? (
+        <p className="text-xs text-gray-400 italic mt-2">You voted ✓</p>
+      ) : (
+        <div className="flex gap-1.5 mt-2">
+          <button
+            type="button"
+            onClick={() => onVote('confirm')}
+            className="flex-1 px-2 py-1.5 rounded-md bg-green-50 text-green-700 text-xs font-semibold border border-green-200 active:bg-green-100"
+          >
+            Still there
+          </button>
+          <button
+            type="button"
+            onClick={() => onVote('dismiss')}
+            className="flex-1 px-2 py-1.5 rounded-md bg-red-50 text-red-700 text-xs font-semibold border border-red-200 active:bg-red-100"
+          >
+            Not there
+          </button>
+        </div>
+      )}
+    </div>
+  )
+}
+
 // --- Page ---
 export default function Map() {
   const [hazards, setHazards] = useState([])
@@ -185,20 +242,84 @@ export default function Map() {
   const [reportOpen, setReportOpen] = useState(false)
   const [reporting, setReporting] = useState(false)
 
+  // Crowd-validation state
+  const [votedIds, setVotedIds] = useState(() => loadVotedIds())
+  const [askedIds, setAskedIds] = useState(() => new Set())  // session-only "skipped" set
+  const [proximityPrompt, setProximityPrompt] = useState(null) // { hazard, distanceM } | null
+
   const mapRef = useRef(null)
   const viewboxRef = useRef(null)
+  const routeCoordsRef = useRef(null)
+  useEffect(() => { routeCoordsRef.current = routeCoords }, [routeCoords])
 
-  // Initial: fetch hazards + try silent geolocation.
+  // Initial hazard fetch.
   useEffect(() => {
     listHazards().then(setHazards).catch((e) => {
       console.error('hazards fetch failed', e)
       setStatusMsg('Backend unreachable')
     })
-
-    getCurrentPosition({ timeoutMs: 8000 }).then((p) => {
-      if (p.source === 'geo') setUserPos([p.lat, p.lng])
-    })
   }, [])
+
+  // Background polling so other users' reports and dismissals appear without a
+  // page reload. Skips the network call when the tab is hidden, and forces an
+  // immediate refresh when it regains focus.
+  useEffect(() => {
+    let cancelled = false
+
+    async function refresh() {
+      if (document.hidden) return
+      try {
+        const list = await listHazards()
+        if (cancelled) return
+        setHazards(list)
+        if (routeCoordsRef.current) {
+          const hits = await fetchHazardsAlongRoute(routeCoordsRef.current)
+          if (!cancelled) setRouteHazards(hits)
+        }
+      } catch (err) {
+        // Quiet: don't toast on each transient failure.
+        console.warn('poll refresh failed', err.message)
+      }
+    }
+
+    const intervalId = setInterval(refresh, POLL_INTERVAL_MS)
+    function onVisibility() { if (!document.hidden) refresh() }
+    document.addEventListener('visibilitychange', onVisibility)
+    return () => {
+      cancelled = true
+      clearInterval(intervalId)
+      document.removeEventListener('visibilitychange', onVisibility)
+    }
+  }, [])
+
+  // Continuous geolocation watch — drives both the user-location dot and proximity prompts.
+  useEffect(() => {
+    if (!navigator.geolocation) return
+    const watchId = navigator.geolocation.watchPosition(
+      (pos) => setUserPos([pos.coords.latitude, pos.coords.longitude]),
+      (err) => console.warn('watchPosition error', err.message),
+      { enableHighAccuracy: true, maximumAge: 5000, timeout: 15000 },
+    )
+    return () => navigator.geolocation.clearWatch(watchId)
+  }, [])
+
+  // Proximity detection — show the "still there?" prompt for the nearest
+  // unanswered hazard, *unless* this device authored the hazard within the
+  // last 24h (read from localStorage on each tick so cross-route reports
+  // from /report take effect immediately on return).
+  useEffect(() => {
+    if (!userPos || proximityPrompt) return
+    const ownIds = loadFreshOwnReports()
+    let nearest = null
+    for (const hz of hazards) {
+      if (votedIds.has(hz.id) || askedIds.has(hz.id) || ownIds.has(hz.id)) continue
+      const d = haversineM(userPos[0], userPos[1], hz.lat, hz.lng)
+      if (d <= PROXIMITY_THRESHOLD_M && (!nearest || d < nearest.distanceM)) {
+        nearest = { hazard: hz, distanceM: d }
+      }
+    }
+    if (nearest) setProximityPrompt(nearest)
+  }, [userPos, hazards, votedIds, askedIds, proximityPrompt])
 
   // Close the quick-report modal on Escape.
   useEffect(() => {
@@ -207,6 +328,58 @@ export default function Map() {
     document.addEventListener('keydown', onKey)
     return () => document.removeEventListener('keydown', onKey)
   }, [reportOpen])
+
+  function markVoted(id) {
+    setVotedIds((prev) => {
+      const next = new Set(prev)
+      next.add(id)
+      persistVotedIds(next)
+      return next
+    })
+  }
+
+  async function castVote(id, vote) {
+    try {
+      const updated = await voteHazard(id, vote)
+      markVoted(id)
+      setHazards((prev) => {
+        if (updated.visible === false) return prev.filter((h) => h.id !== id)
+        return prev.map((h) =>
+          h.id === id ? { ...h, confirms: updated.confirms, dismisses: updated.dismisses } : h,
+        )
+      })
+      setRouteHazards((prev) => {
+        if (updated.visible === false) return prev.filter((h) => h.hazard.id !== id)
+        return prev.map((h) =>
+          h.hazard.id === id
+            ? { ...h, hazard: { ...h.hazard, confirms: updated.confirms, dismisses: updated.dismisses } }
+            : h,
+        )
+      })
+    } catch (err) {
+      setStatusMsg(err.message ?? 'Vote failed')
+    }
+  }
+
+  function skipPrompt() {
+    if (!proximityPrompt) return
+    setAskedIds((prev) => {
+      const next = new Set(prev)
+      next.add(proximityPrompt.hazard.id)
+      return next
+    })
+    setProximityPrompt(null)
+  }
+
+  async function votePrompt(vote) {
+    if (!proximityPrompt) return
+    const id = proximityPrompt.hazard.id
+    // Pre-mark synchronously so the proximity effect doesn't re-pop the prompt
+    // for this same hazard while the vote POST is in flight.
+    markVoted(id)
+    setProximityPrompt(null)
+    await castVote(id, vote)
+  }
 
   function onMapReady(map) {
     mapRef.current = map
@@ -288,6 +461,7 @@ export default function Map() {
         lat = c.lat; lng = c.lng; fellBack = true
       }
       const hz = await createHazard({ lat, lng, type, severity: 'Moderate', description: '' })
+      markOwnReport(hz.id)  // suppresses self-prompts for 24h
       setHazards((prev) => [...prev, hz])
       if (navigator.vibrate) navigator.vibrate(150)
       setStatusMsg(fellBack ? `Reported ${type} at map centre` : `Reported ${type}`)
@@ -372,13 +546,11 @@ export default function Map() {
           {hazards.map((hz) => (
             <Marker key={hz.id} position={[hz.lat, hz.lng]} icon={hazardIcon(hz)}>
               <Popup>
-                <div className="text-sm">
-                  <p className="font-semibold capitalize">{hz.type}</p>
-                  <p className="text-xs" style={{ color: severityColor(hz.severity).hex }}>
-                    {hz.severity ?? 'Moderate'}
-                  </p>
-                  {hz.description && <p className="text-gray-600 text-xs mt-1">{hz.description}</p>}
-                </div>
+                <HazardPopupContent
+                  hazard={hz}
+                  hasVoted={votedIds.has(hz.id)}
+                  onVote={(v) => castVote(hz.id, v)}
+                />
               </Popup>
             </Marker>
           ))}
@@ -394,12 +566,12 @@ export default function Map() {
               icon={pulseIcon(severityColor(h.hazard.severity).hex)}
             >
               <Popup>
-                <div className="text-sm">
-                  <p className="font-semibold capitalize">{h.hazard.type}</p>
-                  <p className="text-xs text-gray-500">
-                    {Math.round(h.distanceAlongRouteM)} m along · {Math.round(h.perpendicularDistanceM)} m off
-                  </p>
-                </div>
+                <HazardPopupContent
+                  hazard={h.hazard}
+                  hasVoted={votedIds.has(h.hazard.id)}
+                  onVote={(v) => castVote(h.hazard.id, v)}
+                  routeMeta={`${Math.round(h.distanceAlongRouteM)} m along · ${Math.round(h.perpendicularDistanceM)} m off`}
+                />
               </Popup>
             </Marker>
           ))}
@@ -529,6 +701,61 @@ export default function Map() {
             >
               Cancel
             </button>
+          </div>
+        </div>
+      )}
+
+      {/* Waze-style proximity prompt: pops when you drive within ~80m of an unanswered hazard. */}
+      {proximityPrompt && (
+        <div className="fixed inset-0 z-[1300] flex items-end sm:items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/40" onClick={skipPrompt} />
+          <div className="relative w-full max-w-sm bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <div
+              className="px-4 py-3 text-white text-xs font-bold uppercase tracking-wide flex items-center justify-between"
+              style={{ background: severityColor(proximityPrompt.hazard.severity).hex }}
+            >
+              <span>You're nearby — is it still there?</span>
+              <button
+                type="button"
+                aria-label="Skip"
+                onClick={skipPrompt}
+                className="text-white/80 active:text-white text-base leading-none"
+              >×</button>
+            </div>
+            <div className="px-4 py-4 flex items-start gap-3">
+              <span className="text-3xl shrink-0 leading-none">{TYPE_EMOJI[proximityPrompt.hazard.type] ?? TYPE_EMOJI.other}</span>
+              <div className="flex-1 min-w-0">
+                <p className="font-semibold capitalize text-gray-900">{proximityPrompt.hazard.type}</p>
+                <p
+                  className="text-xs font-medium"
+                  style={{ color: severityColor(proximityPrompt.hazard.severity).hex }}
+                >
+                  {proximityPrompt.hazard.severity ?? 'Moderate'} · {Math.round(proximityPrompt.distanceM)} m away
+                </p>
+                {proximityPrompt.hazard.description && (
+                  <p className="text-xs text-gray-600 mt-1">{proximityPrompt.hazard.description}</p>
+                )}
+                <p className="text-xs text-gray-400 mt-1">
+                  {proximityPrompt.hazard.confirms ?? 0} confirmed · {proximityPrompt.hazard.dismisses ?? 0} dismissed
+                </p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-px bg-gray-100">
+              <button
+                type="button"
+                onClick={() => votePrompt('dismiss')}
+                className="bg-white py-3 text-sm font-semibold text-red-600 active:bg-red-50"
+              >
+                Nope, gone
+              </button>
+              <button
+                type="button"
+                onClick={() => votePrompt('confirm')}
+                className="bg-white py-3 text-sm font-semibold text-green-600 active:bg-green-50"
+              >
+                Yes, still there
+              </button>
+            </div>
           </div>
         </div>
       )}
