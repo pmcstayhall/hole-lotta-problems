@@ -241,6 +241,7 @@ export default function Map() {
   const [mapCmd, setMapCmd] = useState(null)
   const [reporting, setReporting] = useState(false)
   const [confirmedType, setConfirmedType] = useState(null)
+  const [confirmedKey, setConfirmedKey] = useState(0)
 
   // Crowd-validation state
   const [votedIds, setVotedIds] = useState(() => loadVotedIds())
@@ -292,9 +293,17 @@ export default function Map() {
     }
   }, [])
 
-  // Continuous geolocation watch — drives both the user-location dot and proximity prompts.
+  // Geolocation: one fast low-accuracy fix on mount + a continuous watch.
+  // The one-shot fix matters because watchPosition with high accuracy can
+  // take many seconds to push its first reading — until then, userPos stays
+  // null and the proximity effect can't run.
   useEffect(() => {
     if (!navigator.geolocation) return
+    navigator.geolocation.getCurrentPosition(
+      (pos) => setUserPos([pos.coords.latitude, pos.coords.longitude]),
+      (err) => console.warn('initial geolocation failed', err.message),
+      { enableHighAccuracy: false, maximumAge: 60_000, timeout: 8000 },
+    )
     const watchId = navigator.geolocation.watchPosition(
       (pos) => setUserPos([pos.coords.latitude, pos.coords.longitude]),
       (err) => console.warn('watchPosition error', err.message),
@@ -311,14 +320,32 @@ export default function Map() {
     if (!userPos || proximityPrompt) return
     const ownIds = loadFreshOwnReports()
     let nearest = null
+    let nearestSkipReason = null
+    let nearestSkipDistance = Infinity
     for (const hz of hazards) {
-      if (votedIds.has(hz.id) || askedIds.has(hz.id) || ownIds.has(hz.id)) continue
       const d = haversineM(userPos[0], userPos[1], hz.lat, hz.lng)
-      if (d <= PROXIMITY_THRESHOLD_M && (!nearest || d < nearest.distanceM)) {
+      const inRange = d <= PROXIMITY_THRESHOLD_M
+      let reason = null
+      if (votedIds.has(hz.id)) reason = 'voted'
+      else if (askedIds.has(hz.id)) reason = 'skipped'
+      else if (ownIds.has(hz.id)) reason = 'own report (24h)'
+      if (reason) {
+        if (inRange && d < nearestSkipDistance) {
+          nearestSkipReason = `${reason} for ${hz.type} ${Math.round(d)}m away`
+          nearestSkipDistance = d
+        }
+        continue
+      }
+      if (inRange && (!nearest || d < nearest.distanceM)) {
         nearest = { hazard: hz, distanceM: d }
       }
     }
-    if (nearest) setProximityPrompt(nearest)
+    if (nearest) {
+      setProximityPrompt(nearest)
+    } else if (nearestSkipReason) {
+      // Helpful when a developer is wondering why no prompt is showing.
+      console.debug('[proximity] in-range hazard suppressed:', nearestSkipReason)
+    }
   }, [userPos, hazards, votedIds, askedIds, proximityPrompt])
 
   // Close the quick-report modal on Escape.
@@ -447,9 +474,9 @@ export default function Map() {
   }
 
   async function quickReport(type) {
+    if (reporting) return
     setReporting(true)
-    setConfirmedType(type)
-    setStatusMsg('')
+    setStatusMsg('Reporting…')
     try {
       const p = await getCurrentPosition({ timeoutMs: 3000 })
       let lat, lng
@@ -462,9 +489,13 @@ export default function Map() {
       const hz = await createHazard({ lat, lng, type, severity: 'Moderate', description: '' })
       markOwnReport(hz.id)  // suppresses self-prompts for 24h
       setHazards((prev) => [...prev, hz])
+      // Show the success modal *after* the POST succeeds: avoids flashing if
+      // geolocation is slow, and stays correct on errors.
+      setConfirmedKey((k) => k + 1)  // force re-mount so the SVG animation replays
+      setConfirmedType(type)
+      setStatusMsg('')
       if (navigator.vibrate) navigator.vibrate(150)
     } catch (err) {
-      setConfirmedType(null)
       setStatusMsg(err.message ?? 'Report failed')
     } finally {
       setReporting(false)
@@ -652,7 +683,7 @@ export default function Map() {
       </div>
 
       {confirmedType && (
-        <div className="fixed inset-0 z-[1200] flex items-center justify-center p-4">
+        <div key={confirmedKey} className="fixed inset-0 z-[1400] flex items-center justify-center p-4">
           <div className="absolute inset-0 bg-black/40" onClick={() => setConfirmedType(null)} />
           <div className="relative bg-white rounded-2xl shadow-2xl px-8 py-10 flex flex-col items-center gap-4 w-full max-w-xs">
             <div className="check-circle-anim">
