@@ -9,9 +9,12 @@ let routeLine = null;
 const routeHazardLayer = L.layerGroup();
 
 const map = L.map("map").setView(DEFAULT_CENTER, 15);
-L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-  maxZoom: 19,
-  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+  maxZoom: 20,
+  subdomains: "abcd",
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> ' +
+    '&copy; <a href="https://carto.com/attributions">CARTO</a>',
 }).addTo(map);
 
 const hazardLayer = L.layerGroup().addTo(map);
@@ -122,6 +125,35 @@ async function reportHazard(type) {
     fab.disabled = false;
   }
 }
+
+// "Locate me" button: pan map to current geolocation, drop a pulsing blue dot.
+let userLocationMarker = null;
+
+async function locateMe() {
+  const btn = document.getElementById("locate-btn");
+  btn.disabled = true;
+  try {
+    const loc = await getCurrentPosition();
+    if (loc.source === "map") { toast("Location unavailable"); return; }
+
+    if (userLocationMarker) {
+      userLocationMarker.setLatLng([loc.lat, loc.lng]);
+    } else {
+      const icon = L.divIcon({
+        className: "",
+        html: '<div class="user-location-icon"></div>',
+        iconSize: [18, 18],
+        iconAnchor: [9, 9],
+      });
+      userLocationMarker = L.marker([loc.lat, loc.lng], { icon, interactive: false }).addTo(map);
+    }
+    map.setView([loc.lat, loc.lng], Math.max(map.getZoom(), 16), { animate: true });
+  } finally {
+    btn.disabled = false;
+  }
+}
+
+document.getElementById("locate-btn").addEventListener("click", locateMe);
 
 // Type-picker modal: FAB opens it; tapping a type closes it and submits the report.
 const typeModal = document.getElementById("type-modal");
