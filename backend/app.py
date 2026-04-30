@@ -13,6 +13,8 @@ from flask_cors import CORS
 from geo import haversine_m, project_point, project_route
 
 ALLOWED_TYPES = {"pothole", "debris", "flooding", "other"}
+ALLOWED_SEVERITIES = {"Minor", "Moderate", "Severe"}
+DEFAULT_SEVERITY = "Moderate"
 SEED_PATH = Path(__file__).parent / "seed_hazards.json"
 CANNED_ROUTE_PATH = Path(__file__).parent.parent / "demo" / "canned_route.json"
 RATE_LIMIT_WINDOW_S = 60
@@ -65,10 +67,14 @@ def create_hazard():
 
     body = request.get_json(silent=True) or {}
     htype = body.get("type")
+    severity = body.get("severity", DEFAULT_SEVERITY)
+    description = (body.get("description") or "").strip()
     lat, lng = body.get("lat"), body.get("lng")
 
     if htype not in ALLOWED_TYPES:
         return jsonify(error="invalid type"), 400
+    if severity not in ALLOWED_SEVERITIES:
+        return jsonify(error="invalid severity"), 400
     if not isinstance(lat, (int, float)) or not isinstance(lng, (int, float)):
         return jsonify(error="invalid coordinates"), 400
     if not (-90 <= lat <= 90) or not (-180 <= lng <= 180):
@@ -79,6 +85,8 @@ def create_hazard():
         "lat": round(float(lat), 6),
         "lng": round(float(lng), 6),
         "type": htype,
+        "severity": severity,
+        "description": description[:500],
         "reportedAt": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     }
     hazards.append(hazard)

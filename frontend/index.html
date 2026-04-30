@@ -1,80 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Road Hazard</title>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div id="map"></div>
-
-  <div id="header">
-    <strong>Road Hazard</strong>
-    <span id="hazard-count">0 hazards reported</span>
-  </div>
-
-  <form id="search-bar" autocomplete="off">
-    <div class="search-row">
-      <span class="search-label" aria-hidden="true">A</span>
-      <input id="origin-input" type="search" placeholder="From: current location"
-             autocomplete="off" autocorrect="off" spellcheck="false"
-             role="combobox" aria-controls="origin-suggestions" aria-autocomplete="list" aria-expanded="false" />
-      <button type="button" id="origin-clear" aria-label="Use current location" hidden>×</button>
-    </div>
-    <div class="search-row">
-      <span class="search-label" aria-hidden="true">B</span>
-      <input id="search-input" type="search" placeholder="To: search a destination…"
-             autocomplete="off" autocorrect="off" spellcheck="false"
-             role="combobox" aria-controls="search-suggestions" aria-autocomplete="list" aria-expanded="false" />
-      <button id="search-btn" type="submit">Go</button>
-    </div>
-  </form>
-  <ul id="origin-suggestions" role="listbox" class="suggestions" hidden></ul>
-  <ul id="search-suggestions" role="listbox" class="suggestions" hidden></ul>
-
-  <aside id="route-panel" aria-label="Hazards along route">
-    <header>
-      <span id="route-panel-title">Route hazards</span>
-      <button id="route-panel-close" type="button" aria-label="Clear route">×</button>
-    </header>
-    <ul id="route-list"></ul>
-  </aside>
-
-  <button id="locate-btn" type="button" aria-label="Show my location" title="Show my location">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <circle cx="12" cy="12" r="3"></circle>
-      <circle cx="12" cy="12" r="9"></circle>
-      <line x1="12" y1="1"  x2="12" y2="4"></line>
-      <line x1="12" y1="20" x2="12" y2="23"></line>
-      <line x1="1"  y1="12" x2="4"  y2="12"></line>
-      <line x1="20" y1="12" x2="23" y2="12"></line>
-    </svg>
-  </button>
-
-  <button id="fab" aria-label="Report hazard at my location">+</button>
-
-  <div id="type-modal" role="dialog" aria-modal="true" aria-labelledby="type-modal-title" hidden>
-    <div id="type-modal-backdrop"></div>
-    <div id="type-modal-card">
-      <h2 id="type-modal-title">Report a hazard</h2>
-      <div id="type-modal-grid">
-        <button class="type-btn" data-type="pothole"  style="--btn-color:#d32f2f"><span>🕳</span>Pothole</button>
-        <button class="type-btn" data-type="debris"   style="--btn-color:#f57c00"><span>🪨</span>Debris</button>
-        <button class="type-btn" data-type="flooding" style="--btn-color:#1976d2"><span>💧</span>Flooding</button>
-        <button class="type-btn" data-type="other"    style="--btn-color:#616161"><span>⚠</span>Other</button>
-      </div>
-      <button id="type-modal-cancel" type="button">Cancel</button>
-    </div>
-  </div>
-  <div id="toast" role="status" aria-live="polite"></div>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="config.js"></script>
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f97316" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="HoleLotta" />
+    <title>Hole Lotta Problems</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

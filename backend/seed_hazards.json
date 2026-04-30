@@ -4,6 +4,8 @@
     "lat": 43.642686,
     "lng": -79.382828,
     "type": "pothole",
+    "severity": "Severe",
+    "description": "Deep pothole near base of CN Tower; cyclists swerving into traffic.",
     "reportedAt": "2026-04-30T08:05:00Z"
   },
   {
@@ -11,6 +13,8 @@
     "lat": 43.64535,
     "lng": -79.381801,
     "type": "debris",
+    "severity": "Minor",
+    "description": "Construction debris on the curb lane.",
     "reportedAt": "2026-04-30T08:10:00Z"
   },
   {
@@ -18,6 +22,8 @@
     "lat": 43.646568,
     "lng": -79.377363,
     "type": "flooding",
+    "severity": "Moderate",
+    "description": "Standing water after last night's storm; drain blocked.",
     "reportedAt": "2026-04-30T08:15:00Z"
   },
   {
@@ -25,6 +31,8 @@
     "lat": 43.650389,
     "lng": -79.378387,
     "type": "other",
+    "severity": "Minor",
+    "description": "Lane marking faded near intersection.",
     "reportedAt": "2026-04-30T08:20:00Z"
   },
   {
@@ -32,6 +40,8 @@
     "lat": 43.65404,
     "lng": -79.379964,
     "type": "pothole",
+    "severity": "Severe",
+    "description": "Spans most of the curb lane just south of Yonge-Dundas Square.",
     "reportedAt": "2026-04-30T08:25:00Z"
   }
 ]
