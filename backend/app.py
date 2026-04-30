@@ -24,9 +24,8 @@ ROUTE_BUFFER_M = 50.0
 app = Flask(__name__)
 CORS(app)
 
-# with SEED_PATH.open() as f:
-#     hazards: list[dict] = json.load(f)
-hazards: list[dict] = []
+with SEED_PATH.open() as f:
+    hazards: list[dict] = json.load(f)
 
 _post_log: dict[str, deque] = defaultdict(deque)
 

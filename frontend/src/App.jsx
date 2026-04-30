@@ -9,8 +9,8 @@ import Rewards from './pages/Rewards'
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="flex flex-col h-full max-w-md mx-auto bg-white shadow-lg">
-        <main className="flex-1 overflow-y-auto">
+      <div className="flex flex-col h-full w-full bg-white">
+        <main className="flex-1 overflow-y-auto no-scrollbar">
           <Routes>
             <Route path="/" element={<Navigate to="/map" replace />} />
             <Route path="/report" element={<Report />} />

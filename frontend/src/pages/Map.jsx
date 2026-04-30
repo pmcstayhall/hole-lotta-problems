@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Polyline, Popup, useMap } from 'react-leaflet'
 import L from 'leaflet'
 import {
@@ -13,12 +13,14 @@ import {
 } from '../lib/api'
 import { TYPES, TYPE_EMOJI, TYPE_LABEL, severityColor } from '../lib/hazardStyles'
 import { markOwnReport, loadFreshOwnReports } from '../lib/ownReports'
+import { clusterHazards } from '../lib/cluster'
 
 const TORONTO_CENTER = [43.6532, -79.3832]
 const DEFAULT_ZOOM = 14
 const PROXIMITY_THRESHOLD_M = 80   // ask "still there?" within this radius
 const VOTED_KEY = 'hlp:votedHazards'
 const POLL_INTERVAL_MS = 5000      // refetch hazards from backend at this cadence
+const CLUSTER_RADIUS_M = 1000      // hazards within this radius render as one marker
 
 function loadVotedIds() {
   try {
@@ -39,6 +41,25 @@ function hazardIcon(hz) {
     html: `<div class="hazard-emoji" style="color:${c}">${TYPE_EMOJI[hz.type] ?? TYPE_EMOJI.other}</div>`,
     iconSize: [28, 28],
     iconAnchor: [14, 14],
+  })
+}
+
+function clusterIcon(count, severity) {
+  const color = severityColor(severity).hex
+  const size = count <= 10 ? 36 : count <= 50 ? 44 : count <= 200 ? 52 : 60
+  const fontSize = count >= 1000 ? 12 : count >= 100 ? 14 : 15
+  return L.divIcon({
+    className: '',
+    html: `<div style="
+      width:${size}px;height:${size}px;background:${color};
+      border:3px solid white;border-radius:50%;
+      box-shadow:0 2px 10px rgba(0,0,0,0.45);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;color:white;font-size:${fontSize}px;
+      line-height:1;
+    ">${count}</div>`,
+    iconSize: [size, size],
+    iconAnchor: [size / 2, size / 2],
   })
 }
 
@@ -96,11 +117,14 @@ function LocateControl({ onLocate }) {
 
 // --- Autocomplete input with viewport-biased Nominatim suggestions ---
 function AutocompleteInput({
-  value, onValueChange, onPick, placeholder, label, viewboxRef, suggestionsAbove = false,
+  value, onValueChange, onPick, placeholder, label, viewboxRef,
+  suggestionsAbove = false, dotColor = '#1976d2', confirmed = false,
 }) {
   const [suggestions, setSuggestions] = useState([])
   const [active, setActive] = useState(-1)
   const [open, setOpen] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [hasQuery, setHasQuery] = useState(false)
   const seqRef = useRef(0)
   const debounceRef = useRef(null)
   const wrapRef = useRef(null)
@@ -117,7 +141,15 @@ function AutocompleteInput({
     const q = e.target.value
     onValueChange(q)
     clearTimeout(debounceRef.current)
-    if (q.trim().length < 3) { setSuggestions([]); setOpen(false); return }
+    setHasQuery(q.trim().length >= 3)
+    if (q.trim().length < 3) {
+      setSuggestions([])
+      setOpen(false)
+      setLoading(false)
+      return
+    }
+    setLoading(true)
+    setOpen(true)
     const seq = ++seqRef.current
     debounceRef.current = setTimeout(async () => {
       try {
@@ -125,9 +157,11 @@ function AutocompleteInput({
         if (seq !== seqRef.current) return
         setSuggestions(results)
         setActive(-1)
-        setOpen(true)
       } catch (err) {
         console.warn('suggestion fetch failed', err)
+        if (seq === seqRef.current) setSuggestions([])
+      } finally {
+        if (seq === seqRef.current) setLoading(false)
       }
     }, 350)
   }
@@ -139,38 +173,65 @@ function AutocompleteInput({
     onPick(hit)
     setOpen(false)
     setSuggestions([])
+    setHasQuery(false)
   }
 
   function handleKey(e) {
-    if (!open || suggestions.length === 0) return
+    if (!open) return
     if (e.key === 'ArrowDown') { e.preventDefault(); setActive((i) => Math.min(i + 1, suggestions.length - 1)) }
     else if (e.key === 'ArrowUp') { e.preventDefault(); setActive((i) => Math.max(i - 1, 0)) }
     else if (e.key === 'Enter' && active >= 0) { e.preventDefault(); pick(active) }
     else if (e.key === 'Escape') { setOpen(false) }
   }
 
+  const showDropdown = open && hasQuery
+  const labelStyle = confirmed
+    ? { background: '#16a34a', color: 'white' }
+    : { background: dotColor, color: 'white' }
+
   return (
     <div className="relative" ref={wrapRef}>
       <div className="flex items-center gap-2">
-        <span className="text-xs font-bold text-gray-400 w-4">{label}</span>
+        <span
+          className="w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 transition-colors"
+          style={labelStyle}
+          aria-hidden="true"
+        >
+          {confirmed ? '✓' : label}
+        </span>
         <input
           type="search"
           value={value}
           onChange={handleChange}
           onKeyDown={handleKey}
-          onFocus={() => suggestions.length > 0 && setOpen(true)}
+          onFocus={() => hasQuery && setOpen(true)}
           placeholder={placeholder}
           autoComplete="off"
+          autoCorrect="off"
+          spellCheck="false"
           className="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400 min-w-0"
         />
       </div>
-      {open && suggestions.length > 0 && (
-        <ul className={`absolute left-0 right-0 z-[1100] bg-white rounded-lg shadow-xl border border-gray-100 max-h-64 overflow-y-auto ${suggestionsAbove ? 'bottom-full mb-1' : 'top-full mt-1'}`}>
+      {showDropdown && (
+        <ul
+          role="listbox"
+          className={`absolute left-7 right-0 z-[1100] bg-white rounded-lg shadow-xl border border-gray-200 max-h-64 overflow-y-auto ${suggestionsAbove ? 'bottom-full mb-1' : 'top-full mt-1'}`}
+        >
+          {loading && suggestions.length === 0 && (
+            <li className="px-3 py-2.5 text-xs text-gray-500 italic flex items-center gap-2">
+              <span className="inline-block w-3 h-3 rounded-full border-2 border-gray-300 border-t-orange-500 animate-spin" />
+              Searching…
+            </li>
+          )}
+          {!loading && suggestions.length === 0 && (
+            <li className="px-3 py-2.5 text-xs text-gray-500 italic">No matches in this area</li>
+          )}
           {suggestions.map((r, i) => {
             const parts = (r.display_name ?? '').split(', ')
             return (
               <li
                 key={`${r.place_id}-${i}`}
+                role="option"
                 aria-selected={i === active}
                 onMouseDown={(e) => { e.preventDefault(); pick(i) }}
                 className={`px-3 py-2 cursor-pointer border-b border-gray-50 last:border-0 ${i === active ? 'bg-orange-50' : 'hover:bg-gray-50'}`}
@@ -228,6 +289,40 @@ function HazardPopupContent({ hazard, hasVoted, onVote, routeMeta }) {
   )
 }
 
+// --- Popup contents shown when a multi-hazard cluster marker is opened ---
+function ClusterPopupContent({ cluster }) {
+  const sorted = useMemo(
+    () => [...cluster.hazards].sort((a, b) => (b.reportCount ?? 1) - (a.reportCount ?? 1)),
+    [cluster],
+  )
+  return (
+    <div className="text-sm min-w-[240px] max-w-[280px]">
+      <p className="font-semibold">{cluster.count} hazards in this area</p>
+      <p className="text-xs text-gray-500 mb-2">
+        {cluster.totalReports} total reports · sorted by report count
+      </p>
+      <ul className="max-h-[240px] overflow-y-auto divide-y divide-gray-100 -mx-1">
+        {sorted.map((hz) => (
+          <li key={hz.id} className="px-1 py-1.5 flex items-center gap-2">
+            <span className="text-xl shrink-0">{TYPE_EMOJI[hz.type] ?? TYPE_EMOJI.other}</span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium capitalize truncate">{hz.type}</p>
+              <p className="text-xs" style={{ color: severityColor(hz.severity).hex }}>
+                {hz.severity ?? 'Moderate'}
+              </p>
+            </div>
+            {(hz.reportCount ?? 1) > 1 && (
+              <span className="text-xs text-gray-500 font-semibold shrink-0">
+                {hz.reportCount}×
+              </span>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
 // --- Page ---
 export default function Map() {
   const [hazards, setHazards] = useState([])
@@ -252,6 +347,11 @@ export default function Map() {
   const viewboxRef = useRef(null)
   const routeCoordsRef = useRef(null)
   useEffect(() => { routeCoordsRef.current = routeCoords }, [routeCoords])
+
+  // Cluster hazards within 1km. Memoized: only recomputes when the hazards
+  // array reference changes (which happens on initial load, after a quick
+  // report, after a vote that invalidates a hazard, or each polling tick).
+  const clusters = useMemo(() => clusterHazards(hazards, CLUSTER_RADIUS_M), [hazards])
 
   // Initial hazard fetch.
   useEffect(() => {
@@ -517,7 +617,7 @@ export default function Map() {
   return (
     <div className="flex flex-col min-h-full">
       <header className="bg-orange-500 text-white px-4 py-5">
-        <h1 className="text-xl font-bold">Pothole Map</h1>
+        <h1 className="text-xl font-bold">Hazard Map</h1>
         <p className="text-orange-100 text-sm mt-0.5">
           {hazards.length} report{hazards.length === 1 ? '' : 's'} in your neighbourhood
         </p>
@@ -532,6 +632,8 @@ export default function Map() {
           onPick={(hit) => setOriginHit(hit)}
           placeholder="From: current location"
           viewboxRef={viewboxRef}
+          dotColor="#2e7d32"
+          confirmed={!!originHit}
         />
         <AutocompleteInput
           label="B"
@@ -540,6 +642,7 @@ export default function Map() {
           onPick={(hit) => runRoute(hit)}
           placeholder="To: search a destination…"
           viewboxRef={viewboxRef}
+          dotColor="#1976d2"
         />
         {(routeCoords || statusMsg) && (
           <div className="flex items-center justify-between gap-2 text-xs">
@@ -558,7 +661,7 @@ export default function Map() {
       </div>
 
       {/* Map */}
-      <div className="h-96 relative">
+      <div className="h-[60vh] relative">
         <MapContainer
           center={TORONTO_CENTER}
           zoom={DEFAULT_ZOOM}
@@ -573,17 +676,29 @@ export default function Map() {
             maxZoom={20}
           />
 
-          {hazards.map((hz) => (
-            <Marker key={hz.id} position={[hz.lat, hz.lng]} icon={hazardIcon(hz)}>
-              <Popup>
-                <HazardPopupContent
-                  hazard={hz}
-                  hasVoted={votedIds.has(hz.id)}
-                  onVote={(v) => castVote(hz.id, v)}
-                />
-              </Popup>
-            </Marker>
-          ))}
+          {clusters.map((c) => {
+            if (c.count === 1) {
+              const hz = c.hazards[0]
+              return (
+                <Marker key={c.id} position={[hz.lat, hz.lng]} icon={hazardIcon(hz)}>
+                  <Popup>
+                    <HazardPopupContent
+                      hazard={hz}
+                      hasVoted={votedIds.has(hz.id)}
+                      onVote={(v) => castVote(hz.id, v)}
+                    />
+                  </Popup>
+                </Marker>
+              )
+            }
+            return (
+              <Marker key={c.id} position={[c.lat, c.lng]} icon={clusterIcon(c.count, c.severity)}>
+                <Popup maxHeight={320} maxWidth={320}>
+                  <ClusterPopupContent cluster={c} />
+                </Popup>
+              </Marker>
+            )
+          })}
 
           {routeCoords && (
             <Polyline positions={routeCoords} pathOptions={{ color: '#f97316', weight: 5, opacity: 0.8 }} />
@@ -663,7 +778,7 @@ export default function Map() {
       )}
 
       {/* Quick-report panel */}
-      <div className="bg-white border-t border-gray-200 px-4 py-3">
+      <div className="bg-white border-t border-gray-200 px-4 pt-3 pb-1">
         <p className="text-base font-bold text-gray-800 mb-2">Report a hazard</p>
         <div className="grid grid-cols-4 gap-1.5">
           {TYPES.map((t) => (

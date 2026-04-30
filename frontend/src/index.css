@@ -82,3 +82,12 @@
   text-shadow: 0 1px 2px rgba(0,0,0,0.6);
   filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
 }
+
+/* Hide scrollbars but keep scrolling functional. */
+.no-scrollbar {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/old Edge */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;                /* Chrome / Safari / new Edge */
+}
