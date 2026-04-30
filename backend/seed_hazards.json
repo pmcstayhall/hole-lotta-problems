@@ -7513,7 +7513,7 @@
   },
   {
     "id": "fa11a522-bd2f-4a5f-b0b1-e22a122e8efe",
-    "lat": 43.666653,
+    "lat": 43.745884,
     "lng": -79.171193,
     "type": "pothole",
     "severity": "Minor",
@@ -7525,7 +7525,7 @@
   },
   {
     "id": "98a81e7f-e32c-4b90-8766-6d550d744c0d",
-    "lat": 43.656364,
+    "lat": 43.743078,
     "lng": -79.173445,
     "type": "pothole",
     "severity": "Minor",
@@ -7561,7 +7561,7 @@
   },
   {
     "id": "77c97a44-5189-4863-801f-22515f062672",
-    "lat": 43.597677,
+    "lat": 43.677636,
     "lng": -79.291536,
     "type": "pothole",
     "severity": "Moderate",
@@ -7573,7 +7573,7 @@
   },
   {
     "id": "588a753a-d384-43e2-b849-d64196894129",
-    "lat": 43.60806,
+    "lat": 43.649576,
     "lng": -79.3565,
     "type": "pothole",
     "severity": "Moderate",
@@ -7717,7 +7717,7 @@
   },
   {
     "id": "60244143-0115-4f0e-b506-9ce5e8cf278f",
-    "lat": 43.662267,
+    "lat": 43.697911,
     "lng": -79.253335,
     "type": "pothole",
     "severity": "Minor",
@@ -7777,7 +7777,7 @@
   },
   {
     "id": "e3f770ae-480c-4835-bfde-c68a1ad757da",
-    "lat": 43.614618,
+    "lat": 43.671012,
     "lng": -79.298818,
     "type": "pothole",
     "severity": "Severe",
@@ -7825,7 +7825,7 @@
   },
   {
     "id": "ea301bf6-2d20-4c84-88a7-7a1d48af7889",
-    "lat": 43.616263,
+    "lat": 43.693508,
     "lng": -79.260843,
     "type": "pothole",
     "severity": "Minor",
@@ -7885,7 +7885,7 @@
   },
   {
     "id": "ff6686a7-37f0-47e5-9f72-086924a0e9e1",
-    "lat": 43.726737,
+    "lat": 43.777316,
     "lng": -79.130623,
     "type": "pothole",
     "severity": "Moderate",
@@ -7897,7 +7897,7 @@
   },
   {
     "id": "2159bbc5-2eaf-4ba7-abf1-299900593aac",
-    "lat": 43.640293,
+    "lat": 43.699174,
     "lng": -79.241649,
     "type": "pothole",
     "severity": "Moderate",
@@ -7933,7 +7933,7 @@
   },
   {
     "id": "8b7ae03a-825d-442b-964b-d5fc32d21517",
-    "lat": 43.628369,
+    "lat": 43.758603,
     "lng": -79.155131,
     "type": "pothole",
     "severity": "Moderate",
@@ -8017,7 +8017,7 @@
   },
   {
     "id": "9d145ed0-b72e-40a5-b44d-a7d1fa4b08e0",
-    "lat": 43.675282,
+    "lat": 43.723479,
     "lng": -79.194817,
     "type": "pothole",
     "severity": "Moderate",
@@ -8053,7 +8053,7 @@
   },
   {
     "id": "876baacd-d261-4274-b921-9d3699a56d3e",
-    "lat": 43.642194,
+    "lat": 43.706895,
     "lng": -79.222525,
     "type": "pothole",
     "severity": "Moderate",
@@ -8089,7 +8089,7 @@
   },
   {
     "id": "1506a013-fe4a-4d32-a2ae-8e53bf47025a",
-    "lat": 43.595096,
+    "lat": 43.617247,
     "lng": -79.493453,
     "type": "pothole",
     "severity": "Severe",
@@ -8113,7 +8113,7 @@
   },
   {
     "id": "ce11aafb-b351-44f4-9444-734fd7ea97ec",
-    "lat": 43.603152,
+    "lat": 43.637248,
     "lng": -79.39989,
     "type": "pothole",
     "severity": "Minor",
@@ -8185,7 +8185,7 @@
   },
   {
     "id": "987a767c-234f-41a4-9353-c1fe3218877f",
-    "lat": 43.611729,
+    "lat": 43.638132,
     "lng": -79.383702,
     "type": "pothole",
     "severity": "Severe",
@@ -8209,7 +8209,7 @@
   },
   {
     "id": "643be722-f380-463e-957b-35c9b6dbfc32",
-    "lat": 43.591728,
+    "lat": 43.64831,
     "lng": -79.36039,
     "type": "pothole",
     "severity": "Severe",
@@ -8245,7 +8245,7 @@
   },
   {
     "id": "d11befc1-5e0b-4193-a6d1-f1db55b65a26",
-    "lat": 43.656482,
+    "lat": 43.729977,
     "lng": -79.190385,
     "type": "pothole",
     "severity": "Moderate",
@@ -8281,7 +8281,7 @@
   },
   {
     "id": "38b7445b-d2e9-4f68-b711-d698f210ddb1",
-    "lat": 43.648481,
+    "lat": 43.722199,
     "lng": -79.201061,
     "type": "pothole",
     "severity": "Moderate",
@@ -8377,7 +8377,7 @@
   },
   {
     "id": "076e620e-fca5-49d0-afdd-05f4b5e92921",
-    "lat": 43.683768,
+    "lat": 43.772382,
     "lng": -79.13762,
     "type": "pothole",
     "severity": "Moderate",
@@ -8389,7 +8389,7 @@
   },
   {
     "id": "c7719e3c-f2cd-49ed-ab88-85d491e06178",
-    "lat": 43.741318,
+    "lat": 43.757336,
     "lng": -79.156599,
     "type": "pothole",
     "severity": "Minor",
@@ -8401,7 +8401,7 @@
   },
   {
     "id": "3b739eaf-8288-4e1e-b626-3ee83a80e717",
-    "lat": 43.634461,
+    "lat": 43.674267,
     "lng": -79.298127,
     "type": "pothole",
     "severity": "Minor",
@@ -8461,7 +8461,7 @@
   },
   {
     "id": "4bd39ecc-951c-4987-86fe-1b259312ac17",
-    "lat": 43.673986,
+    "lat": 43.762218,
     "lng": -79.147989,
     "type": "pothole",
     "severity": "Severe",
@@ -8485,7 +8485,7 @@
   },
   {
     "id": "6925c0da-9f6c-4cc6-ba9c-099510a69188",
-    "lat": 43.599544,
+    "lat": 43.626842,
     "lng": -79.475817,
     "type": "pothole",
     "severity": "Minor",
@@ -8533,7 +8533,7 @@
   },
   {
     "id": "e64a422e-7f1a-481a-a744-ad780aabddd4",
-    "lat": 43.751089,
+    "lat": 43.774671,
     "lng": -79.132843,
     "type": "pothole",
     "severity": "Moderate",
@@ -8557,7 +8557,7 @@
   },
   {
     "id": "ceebe894-7866-4b2e-ab11-04d3ae526944",
-    "lat": 43.605113,
+    "lat": 43.676565,
     "lng": -79.289888,
     "type": "pothole",
     "severity": "Minor",
@@ -8641,7 +8641,7 @@
   },
   {
     "id": "27441e71-f87b-435c-b7ff-be4d64fe5b6d",
-    "lat": 43.712517,
+    "lat": 43.770295,
     "lng": -79.137647,
     "type": "pothole",
     "severity": "Minor",
@@ -8713,7 +8713,7 @@
   },
   {
     "id": "03513a31-8d99-462a-80b2-5ad595c1356e",
-    "lat": 43.636844,
+    "lat": 43.687011,
     "lng": -79.276651,
     "type": "pothole",
     "severity": "Moderate",
@@ -8785,7 +8785,7 @@
   },
   {
     "id": "09b1a0a1-5e91-460b-b421-966f148dbb4e",
-    "lat": 43.59621,
+    "lat": 43.71085,
     "lng": -79.221229,
     "type": "pothole",
     "severity": "Moderate",
@@ -8809,7 +8809,7 @@
   },
   {
     "id": "a918211c-9970-479d-9744-b203a0974445",
-    "lat": 43.585356,
+    "lat": 43.599313,
     "lng": -79.560594,
     "type": "pothole",
     "severity": "Minor",
@@ -8845,7 +8845,7 @@
   },
   {
     "id": "fae7ab8d-f2b7-45dc-8b2a-e0f774d734e1",
-    "lat": 43.657361,
+    "lat": 43.668328,
     "lng": -79.310461,
     "type": "pothole",
     "severity": "Severe",
@@ -8893,7 +8893,7 @@
   },
   {
     "id": "5ec16e8e-6f40-4c4d-a813-49136a22bd78",
-    "lat": 43.738468,
+    "lat": 43.765706,
     "lng": -79.146892,
     "type": "pothole",
     "severity": "Moderate",
@@ -8929,7 +8929,7 @@
   },
   {
     "id": "61c0fbaf-6a05-4724-ac1c-ba2997b86183",
-    "lat": 43.587119,
+    "lat": 43.630932,
     "lng": -79.425464,
     "type": "pothole",
     "severity": "Moderate",
@@ -8941,7 +8941,7 @@
   },
   {
     "id": "7cc00b54-2512-4b8c-92bd-7682e024746f",
-    "lat": 43.621924,
+    "lat": 43.671601,
     "lng": -79.299132,
     "type": "pothole",
     "severity": "Minor",
@@ -8953,7 +8953,7 @@
   },
   {
     "id": "74f82824-4cd3-4c76-8801-7a5e6d5c3ff8",
-    "lat": 43.656727,
+    "lat": 43.665309,
     "lng": -79.313024,
     "type": "pothole",
     "severity": "Severe",
@@ -8989,7 +8989,7 @@
   },
   {
     "id": "e4a06d8a-650f-40f8-8af1-38111408c2d9",
-    "lat": 43.6278,
+    "lat": 43.661519,
     "lng": -79.327184,
     "type": "pothole",
     "severity": "Moderate",
@@ -9025,7 +9025,7 @@
   },
   {
     "id": "758b27bf-dfec-4da2-8f52-73e823ec9bfa",
-    "lat": 43.580025,
+    "lat": 43.708513,
     "lng": -79.220464,
     "type": "pothole",
     "severity": "Minor",
@@ -9037,7 +9037,7 @@
   },
   {
     "id": "7fec9907-8e75-4e9b-a258-1fc4100a9a60",
-    "lat": 43.582246,
+    "lat": 43.749929,
     "lng": -79.168177,
     "type": "pothole",
     "severity": "Minor",
@@ -9109,7 +9109,7 @@
   },
   {
     "id": "051e73cc-fe94-4683-9be6-6fb3035808ff",
-    "lat": 43.658191,
+    "lat": 43.668311,
     "lng": -79.307923,
     "type": "pothole",
     "severity": "Moderate",
@@ -9133,7 +9133,7 @@
   },
   {
     "id": "ec2af5b1-dca4-48df-8522-40992d4e8ee1",
-    "lat": 43.607614,
+    "lat": 43.619073,
     "lng": -79.488094,
     "type": "pothole",
     "severity": "Moderate",
@@ -9145,7 +9145,7 @@
   },
   {
     "id": "b6b0f6fd-6c75-42d6-a3e3-cc64a1298f0b",
-    "lat": 43.620685,
+    "lat": 43.641877,
     "lng": -79.378146,
     "type": "pothole",
     "severity": "Moderate",
@@ -9181,7 +9181,7 @@
   },
   {
     "id": "d92691b6-7d35-4066-a895-56550fb3b96c",
-    "lat": 43.631892,
+    "lat": 43.716461,
     "lng": -79.207646,
     "type": "pothole",
     "severity": "Minor",
@@ -9205,7 +9205,7 @@
   },
   {
     "id": "ebd58bca-fdfb-4e96-bcd2-dff9a7201c73",
-    "lat": 43.589048,
+    "lat": 43.636301,
     "lng": -79.394191,
     "type": "pothole",
     "severity": "Moderate",
@@ -9229,7 +9229,7 @@
   },
   {
     "id": "a2224e94-a401-4d80-a49b-b2c2af0c68f5",
-    "lat": 43.59139,
+    "lat": 43.756077,
     "lng": -79.160664,
     "type": "pothole",
     "severity": "Moderate",
@@ -9241,7 +9241,7 @@
   },
   {
     "id": "e6714edc-9b32-41f2-b914-882c7e7e0895",
-    "lat": 43.633655,
+    "lat": 43.735042,
     "lng": -79.185115,
     "type": "pothole",
     "severity": "Minor",
@@ -9289,7 +9289,7 @@
   },
   {
     "id": "40d1d9ef-65a9-41aa-90b8-7f806c3560b4",
-    "lat": 43.747034,
+    "lat": 43.751185,
     "lng": -79.163884,
     "type": "pothole",
     "severity": "Minor",
@@ -9325,7 +9325,7 @@
   },
   {
     "id": "ec53fc3e-45e4-4912-ac9d-df3d21e4c09a",
-    "lat": 43.632101,
+    "lat": 43.684088,
     "lng": -79.282268,
     "type": "pothole",
     "severity": "Moderate",
@@ -9421,7 +9421,7 @@
   },
   {
     "id": "0fbe28b4-cd1b-4405-8ad3-971cdfdab1c7",
-    "lat": 43.609825,
+    "lat": 43.648047,
     "lng": -79.363632,
     "type": "pothole",
     "severity": "Severe",
@@ -9469,7 +9469,7 @@
   },
   {
     "id": "5cd12e24-1855-48ab-ade6-9c171528096f",
-    "lat": 43.712679,
+    "lat": 43.736826,
     "lng": -79.184014,
     "type": "pothole",
     "severity": "Severe",
@@ -9481,7 +9481,7 @@
   },
   {
     "id": "ab04cab8-a7fc-44b6-83d9-e5fa595a7d70",
-    "lat": 43.730665,
+    "lat": 43.756087,
     "lng": -79.160261,
     "type": "pothole",
     "severity": "Moderate",
@@ -9517,7 +9517,7 @@
   },
   {
     "id": "a8541481-6eb2-44ef-9dda-78b528e5aaef",
-    "lat": 43.631154,
+    "lat": 43.647713,
     "lng": -79.362166,
     "type": "pothole",
     "severity": "Severe",
@@ -9589,7 +9589,7 @@
   },
   {
     "id": "ff7b9387-4759-4738-8798-96084524655c",
-    "lat": 43.637761,
+    "lat": 43.70247,
     "lng": -79.244803,
     "type": "pothole",
     "severity": "Minor",
@@ -9613,7 +9613,7 @@
   },
   {
     "id": "bed9896b-6d38-4853-a625-42c7352e49d9",
-    "lat": 43.719755,
+    "lat": 43.77361,
     "lng": -79.133228,
     "type": "pothole",
     "severity": "Moderate",
@@ -9685,7 +9685,7 @@
   },
   {
     "id": "93c94246-061e-422d-acd1-e209f3a9bded",
-    "lat": 43.735583,
+    "lat": 43.742657,
     "lng": -79.175249,
     "type": "pothole",
     "severity": "Moderate",
@@ -9781,7 +9781,7 @@
   },
   {
     "id": "c74bd627-e66b-4a5e-accb-af5f65640eb0",
-    "lat": 43.602971,
+    "lat": 43.644264,
     "lng": -79.374107,
     "type": "pothole",
     "severity": "Moderate",
@@ -9841,7 +9841,7 @@
   },
   {
     "id": "f1e9b64a-be28-4a34-91fa-e83aed8ce880",
-    "lat": 43.74638,
+    "lat": 43.772567,
     "lng": -79.134822,
     "type": "pothole",
     "severity": "Moderate",
@@ -9889,7 +9889,7 @@
   },
   {
     "id": "fdc11eff-6c37-4ac9-8eea-67e9a629cbe0",
-    "lat": 43.586142,
+    "lat": 43.608546,
     "lng": -79.517585,
     "type": "pothole",
     "severity": "Moderate",
@@ -9913,7 +9913,7 @@
   },
   {
     "id": "666e9ab3-6c17-4122-a770-9191da380d46",
-    "lat": 43.584965,
+    "lat": 43.658945,
     "lng": -79.334328,
     "type": "pothole",
     "severity": "Moderate",
@@ -9925,7 +9925,7 @@
   },
   {
     "id": "a677ef75-e2e9-4a45-ab98-d836cb0a53c0",
-    "lat": 43.656684,
+    "lat": 43.704518,
     "lng": -79.233298,
     "type": "pothole",
     "severity": "Moderate",
@@ -9937,7 +9937,7 @@
   },
   {
     "id": "4b54ad1e-858d-4186-8413-b9f384470b9e",
-    "lat": 43.58225,
+    "lat": 43.632013,
     "lng": -79.429564,
     "type": "pothole",
     "severity": "Severe",
@@ -9961,7 +9961,7 @@
   },
   {
     "id": "319aface-1e53-4625-9d39-b8a9fbb4572e",
-    "lat": 43.682789,
+    "lat": 43.769484,
     "lng": -79.14146,
     "type": "pothole",
     "severity": "Severe",
@@ -9985,7 +9985,7 @@
   },
   {
     "id": "029976f8-827e-4f15-b976-77aa56f47b40",
-    "lat": 43.585802,
+    "lat": 43.616969,
     "lng": -79.498778,
     "type": "pothole",
     "severity": "Moderate",
@@ -9997,7 +9997,7 @@
   },
   {
     "id": "8f260ed6-45a7-450c-8f54-6f2a05a20cca",
-    "lat": 43.622391,
+    "lat": 43.628406,
     "lng": -79.450078,
     "type": "pothole",
     "severity": "Moderate",
@@ -10033,7 +10033,7 @@
   },
   {
     "id": "d28c2cc8-6a69-4678-99b6-2d2d771c0d71",
-    "lat": 43.620961,
+    "lat": 43.739283,
     "lng": -79.180384,
     "type": "pothole",
     "severity": "Moderate",
@@ -10057,7 +10057,7 @@
   },
   {
     "id": "f1997817-cbba-47bb-b70c-d7d29b756940",
-    "lat": 43.621242,
+    "lat": 43.767347,
     "lng": -79.144437,
     "type": "pothole",
     "severity": "Minor",
@@ -10081,7 +10081,7 @@
   },
   {
     "id": "d7d744a1-1667-4f21-aa7d-dc0992028ba9",
-    "lat": 43.66343,
+    "lat": 43.689822,
     "lng": -79.274483,
     "type": "pothole",
     "severity": "Moderate",
@@ -10105,7 +10105,7 @@
   },
   {
     "id": "595c0028-af5d-4da7-8b34-27020701110d",
-    "lat": 43.730482,
+    "lat": 43.758664,
     "lng": -79.155185,
     "type": "pothole",
     "severity": "Severe",
@@ -10129,7 +10129,7 @@
   },
   {
     "id": "592438cc-a4b6-4d2f-af80-9050471d1f3b",
-    "lat": 43.699611,
+    "lat": 43.75494,
     "lng": -79.162453,
     "type": "pothole",
     "severity": "Minor",
@@ -10153,7 +10153,7 @@
   },
   {
     "id": "1e2fd394-7e0f-4c09-8798-d89c13b793dc",
-    "lat": 43.652053,
+    "lat": 43.659891,
     "lng": -79.342149,
     "type": "pothole",
     "severity": "Severe",
@@ -10165,7 +10165,7 @@
   },
   {
     "id": "38f93bfd-1c92-4048-80ff-9afe8ac8fe9d",
-    "lat": 43.677001,
+    "lat": 43.683239,
     "lng": -79.282811,
     "type": "pothole",
     "severity": "Moderate",
@@ -10201,7 +10201,7 @@
   },
   {
     "id": "10c4bb4f-2b9f-4a48-a901-907259e45b78",
-    "lat": 43.691522,
+    "lat": 43.697617,
     "lng": -79.25624,
     "type": "pothole",
     "severity": "Minor",
@@ -10249,7 +10249,7 @@
   },
   {
     "id": "807dccbf-8daf-4658-914c-2c12a181f50b",
-    "lat": 43.721812,
+    "lat": 43.726994,
     "lng": -79.190866,
     "type": "pothole",
     "severity": "Moderate",
@@ -10333,7 +10333,7 @@
   },
   {
     "id": "6ff648ad-8075-4ec4-9246-903cf605c8b3",
-    "lat": 43.628297,
+    "lat": 43.663359,
     "lng": -79.330745,
     "type": "pothole",
     "severity": "Moderate",
@@ -10345,7 +10345,7 @@
   },
   {
     "id": "0143e72e-48f8-4172-8064-eea192fa62c0",
-    "lat": 43.647522,
+    "lat": 43.685303,
     "lng": -79.281058,
     "type": "pothole",
     "severity": "Minor",
@@ -10369,7 +10369,7 @@
   },
   {
     "id": "4cf9fc82-117a-4712-81b1-90e0edc6b528",
-    "lat": 43.683704,
+    "lat": 43.706256,
     "lng": -79.232377,
     "type": "pothole",
     "severity": "Moderate",
@@ -10381,7 +10381,7 @@
   },
   {
     "id": "a58e6f03-a767-4006-9203-4b96ded14433",
-    "lat": 43.682764,
+    "lat": 43.702133,
     "lng": -79.243552,
     "type": "pothole",
     "severity": "Minor",
@@ -10393,7 +10393,7 @@
   },
   {
     "id": "1bffe60b-38a5-436a-a9fe-58dddd6217e1",
-    "lat": 43.620524,
+    "lat": 43.72493,
     "lng": -79.194279,
     "type": "pothole",
     "severity": "Severe",
@@ -10405,7 +10405,7 @@
   },
   {
     "id": "473b8ff7-f3f5-4f63-b1cc-50ee870b475b",
-    "lat": 43.66357,
+    "lat": 43.700225,
     "lng": -79.243371,
     "type": "pothole",
     "severity": "Moderate",
@@ -10453,7 +10453,7 @@
   },
   {
     "id": "fb5aa83d-055f-4901-b96b-e26b213fa484",
-    "lat": 43.646073,
+    "lat": 43.654607,
     "lng": -79.351803,
     "type": "pothole",
     "severity": "Moderate",
@@ -10465,7 +10465,7 @@
   },
   {
     "id": "fd028b3d-cf66-4440-a118-bd870cb514ec",
-    "lat": 43.593208,
+    "lat": 43.598602,
     "lng": -79.547354,
     "type": "pothole",
     "severity": "Moderate",
@@ -10525,7 +10525,7 @@
   },
   {
     "id": "da0c14e0-7de5-4624-b3d1-a6d6efd00a6f",
-    "lat": 43.59827,
+    "lat": 43.633809,
     "lng": -79.410611,
     "type": "pothole",
     "severity": "Moderate",
@@ -10585,7 +10585,7 @@
   },
   {
     "id": "a8d6ca0c-eb94-4ffa-bc72-82e3a366ddd4",
-    "lat": 43.615023,
+    "lat": 43.655533,
     "lng": -79.344309,
     "type": "pothole",
     "severity": "Moderate",
@@ -10597,7 +10597,7 @@
   },
   {
     "id": "ca0ace27-1616-4780-a5b1-aff8bdef3102",
-    "lat": 43.628575,
+    "lat": 43.663323,
     "lng": -79.321391,
     "type": "pothole",
     "severity": "Moderate",
@@ -10609,7 +10609,7 @@
   },
   {
     "id": "1db1192b-d4b6-4a1d-a6e5-eccfffb8812c",
-    "lat": 43.586476,
+    "lat": 43.665159,
     "lng": -79.313524,
     "type": "pothole",
     "severity": "Severe",
@@ -10633,7 +10633,7 @@
   },
   {
     "id": "0663555b-96ec-4dcf-b568-c4abf2c2c2b0",
-    "lat": 43.58305,
+    "lat": 43.608461,
     "lng": -79.521418,
     "type": "pothole",
     "severity": "Severe",
@@ -10669,7 +10669,7 @@
   },
   {
     "id": "95707681-9bda-4879-8c45-0f8224daf162",
-    "lat": 43.671243,
+    "lat": 43.676057,
     "lng": -79.290488,
     "type": "pothole",
     "severity": "Minor",
@@ -10729,7 +10729,7 @@
   },
   {
     "id": "65fe5c5d-41b4-499c-a005-d4a8106006ed",
-    "lat": 43.588417,
+    "lat": 43.770594,
     "lng": -79.138027,
     "type": "pothole",
     "severity": "Moderate",
@@ -10765,7 +10765,7 @@
   },
   {
     "id": "43bd904e-6239-4a60-bfbe-b443c09b41de",
-    "lat": 43.702015,
+    "lat": 43.759151,
     "lng": -79.154144,
     "type": "pothole",
     "severity": "Severe",
@@ -11017,7 +11017,7 @@
   },
   {
     "id": "a43878ba-d667-473e-93d6-894121bc08fc",
-    "lat": 43.626116,
+    "lat": 43.702309,
     "lng": -79.243709,
     "type": "pothole",
     "severity": "Moderate",
@@ -11137,7 +11137,7 @@
   },
   {
     "id": "127abfc6-76a8-4525-b76a-eafbc568aaab",
-    "lat": 43.620288,
+    "lat": 43.64802,
     "lng": -79.359685,
     "type": "pothole",
     "severity": "Moderate",
@@ -11173,7 +11173,7 @@
   },
   {
     "id": "7afc3796-d64b-4fbd-9e64-752e53925711",
-    "lat": 43.582192,
+    "lat": 43.772532,
     "lng": -79.136653,
     "type": "pothole",
     "severity": "Moderate",
@@ -11197,7 +11197,7 @@
   },
   {
     "id": "192b93c1-6383-42d3-8adc-8f0e1a49bf7d",
-    "lat": 43.676996,
+    "lat": 43.722782,
     "lng": -79.197989,
     "type": "pothole",
     "severity": "Minor",
@@ -11245,7 +11245,7 @@
   },
   {
     "id": "a21d5c59-3d00-4020-aae0-ac98cf2f7c47",
-    "lat": 43.599371,
+    "lat": 43.608128,
     "lng": -79.612303,
     "type": "pothole",
     "severity": "Moderate",
@@ -11317,7 +11317,7 @@
   },
   {
     "id": "ef73cc97-5b05-44df-b6e0-d2fb327108f5",
-    "lat": 43.610554,
+    "lat": 43.641175,
     "lng": -79.384049,
     "type": "pothole",
     "severity": "Moderate",
@@ -11353,7 +11353,7 @@
   },
   {
     "id": "a26a4597-a841-4f31-ae85-f3976cacc3d8",
-    "lat": 43.601082,
+    "lat": 43.669856,
     "lng": -79.309493,
     "type": "pothole",
     "severity": "Moderate",
@@ -11365,7 +11365,7 @@
   },
   {
     "id": "0f7409ed-5448-4b74-960c-2f47eee98f13",
-    "lat": 43.672757,
+    "lat": 43.701196,
     "lng": -79.238522,
     "type": "pothole",
     "severity": "Moderate",
@@ -11389,7 +11389,7 @@
   },
   {
     "id": "6d62fa5a-3db2-4b75-b339-409aea3fd853",
-    "lat": 43.589538,
+    "lat": 43.749022,
     "lng": -79.167796,
     "type": "pothole",
     "severity": "Moderate",
@@ -11401,7 +11401,7 @@
   },
   {
     "id": "a6f0c4f8-71d5-4e05-9d51-dc3f7d0c8c68",
-    "lat": 43.596583,
+    "lat": 43.638077,
     "lng": -79.388151,
     "type": "pothole",
     "severity": "Severe",
@@ -11437,7 +11437,7 @@
   },
   {
     "id": "d7cec6f2-ec0b-4891-931a-040c52a268f8",
-    "lat": 43.583835,
+    "lat": 43.602479,
     "lng": -79.565341,
     "type": "pothole",
     "severity": "Severe",
@@ -11449,7 +11449,7 @@
   },
   {
     "id": "dba0df94-8ab4-47c8-aec5-1ca5d82eef07",
-    "lat": 43.700596,
+    "lat": 43.709926,
     "lng": -79.224158,
     "type": "pothole",
     "severity": "Severe",
@@ -11521,7 +11521,7 @@
   },
   {
     "id": "12071763-2dae-4ae0-a403-806ca5c6f8c1",
-    "lat": 43.682546,
+    "lat": 43.688061,
     "lng": -79.274252,
     "type": "pothole",
     "severity": "Moderate",
@@ -11533,7 +11533,7 @@
   },
   {
     "id": "75171fb4-17c9-43ea-9bda-68257e9abcf8",
-    "lat": 43.583203,
+    "lat": 43.749547,
     "lng": -79.165661,
     "type": "pothole",
     "severity": "Moderate",
@@ -11557,7 +11557,7 @@
   },
   {
     "id": "2835c3c8-5701-4755-9311-ade22a191975",
-    "lat": 43.696582,
+    "lat": 43.746401,
     "lng": -79.170159,
     "type": "pothole",
     "severity": "Minor",
@@ -11569,7 +11569,7 @@
   },
   {
     "id": "f292da5d-816f-43cb-8702-2940a4f8c01b",
-    "lat": 43.606535,
+    "lat": 43.670011,
     "lng": -79.299372,
     "type": "pothole",
     "severity": "Moderate",
@@ -11593,7 +11593,7 @@
   },
   {
     "id": "dc1a7682-2445-4799-a1e2-173f418176dc",
-    "lat": 43.628577,
+    "lat": 43.653847,
     "lng": -79.35167,
     "type": "pothole",
     "severity": "Moderate",
@@ -11713,7 +11713,7 @@
   },
   {
     "id": "d244b198-d165-4d86-8531-d8aab3de0071",
-    "lat": 43.628179,
+    "lat": 43.641594,
     "lng": -79.378892,
     "type": "pothole",
     "severity": "Severe",
@@ -11773,7 +11773,7 @@
   },
   {
     "id": "53401641-78f9-44e6-b875-e2e1cd4a01ac",
-    "lat": 43.697736,
+    "lat": 43.71626,
     "lng": -79.206416,
     "type": "pothole",
     "severity": "Moderate",
@@ -11785,7 +11785,7 @@
   },
   {
     "id": "f6cd279b-19d0-4fcd-98e4-23b67c9abc68",
-    "lat": 43.580893,
+    "lat": 43.75867,
     "lng": -79.152464,
     "type": "pothole",
     "severity": "Minor",
@@ -11857,7 +11857,7 @@
   },
   {
     "id": "7400fee3-c103-4e1b-bc48-5622e88af60b",
-    "lat": 43.632135,
+    "lat": 43.693187,
     "lng": -79.267328,
     "type": "pothole",
     "severity": "Moderate",
@@ -11893,7 +11893,7 @@
   },
   {
     "id": "b6bf220d-095a-419b-ab01-cf3de6d08d75",
-    "lat": 43.611911,
+    "lat": 43.707085,
     "lng": -79.224519,
     "type": "pothole",
     "severity": "Moderate",
@@ -11917,7 +11917,7 @@
   },
   {
     "id": "1d718136-34c4-4cd0-92db-d9389e1e9055",
-    "lat": 43.618229,
+    "lat": 43.671325,
     "lng": -79.299623,
     "type": "pothole",
     "severity": "Moderate",
@@ -11953,7 +11953,7 @@
   },
   {
     "id": "bc257eac-7498-4dbc-a3dd-a07b044832f5",
-    "lat": 43.608709,
+    "lat": 43.644229,
     "lng": -79.3764,
     "type": "pothole",
     "severity": "Moderate",
@@ -11965,7 +11965,7 @@
   },
   {
     "id": "9869fb4e-dd72-454b-a3dc-08bf89c04456",
-    "lat": 43.695077,
+    "lat": 43.709685,
     "lng": -79.222355,
     "type": "pothole",
     "severity": "Minor",
@@ -12013,7 +12013,7 @@
   },
   {
     "id": "56077c6f-737a-4e48-9aa0-6e8a41c12388",
-    "lat": 43.590989,
+    "lat": 43.60082,
     "lng": -79.571016,
     "type": "pothole",
     "severity": "Minor",
@@ -12025,7 +12025,7 @@
   },
   {
     "id": "271b6d61-97e7-4357-b0d8-6a8d0ff513c5",
-    "lat": 43.58422,
+    "lat": 43.640933,
     "lng": -79.381386,
     "type": "pothole",
     "severity": "Severe",
@@ -12145,7 +12145,7 @@
   },
   {
     "id": "2f5ff28b-8d0c-42d4-9751-d3c4875107d0",
-    "lat": 43.591696,
+    "lat": 43.697384,
     "lng": -79.257196,
     "type": "pothole",
     "severity": "Minor",
@@ -12217,7 +12217,7 @@
   },
   {
     "id": "cb590aec-d4d2-40ad-a157-885a02880f44",
-    "lat": 43.750646,
+    "lat": 43.766759,
     "lng": -79.141978,
     "type": "pothole",
     "severity": "Severe",
@@ -12229,7 +12229,7 @@
   },
   {
     "id": "7272d752-8729-4a2a-8593-9d37afd6f001",
-    "lat": 43.596106,
+    "lat": 43.602548,
     "lng": -79.553114,
     "type": "pothole",
     "severity": "Minor",
@@ -12241,7 +12241,7 @@
   },
   {
     "id": "63981b82-89c1-4659-99ee-990a0eedbd05",
-    "lat": 43.672766,
+    "lat": 43.734916,
     "lng": -79.18566,
     "type": "pothole",
     "severity": "Moderate",
@@ -12277,7 +12277,7 @@
   },
   {
     "id": "25d556fb-a8f0-4d5c-be93-10ec1583ed5d",
-    "lat": 43.655376,
+    "lat": 43.696748,
     "lng": -79.262291,
     "type": "pothole",
     "severity": "Moderate",
@@ -12301,7 +12301,7 @@
   },
   {
     "id": "511231e0-2244-4f22-9b0e-90946693f1b6",
-    "lat": 43.581371,
+    "lat": 43.771808,
     "lng": -79.13971,
     "type": "pothole",
     "severity": "Severe",
@@ -12313,7 +12313,7 @@
   },
   {
     "id": "c432b083-1d38-46c9-91c1-8166ddbfb6db",
-    "lat": 43.589078,
+    "lat": 43.649391,
     "lng": -79.35975,
     "type": "pothole",
     "severity": "Moderate",
@@ -12361,7 +12361,7 @@
   },
   {
     "id": "ad55b9b1-affd-4032-bba1-fae7cfb4d1ed",
-    "lat": 43.586592,
+    "lat": 43.636013,
     "lng": -79.397128,
     "type": "pothole",
     "severity": "Moderate",
@@ -12385,7 +12385,7 @@
   },
   {
     "id": "bfcc563f-20a7-4eaa-a5bd-bd56969e9ce0",
-    "lat": 43.599089,
+    "lat": 43.734971,
     "lng": -79.182217,
     "type": "pothole",
     "severity": "Moderate",
@@ -12397,7 +12397,7 @@
   },
   {
     "id": "8372c910-63cb-4dd2-a62b-8b0469638df8",
-    "lat": 43.652843,
+    "lat": 43.758545,
     "lng": -79.156413,
     "type": "pothole",
     "severity": "Moderate",
@@ -12409,7 +12409,7 @@
   },
   {
     "id": "30e2354d-09a0-4704-92de-d45604315081",
-    "lat": 43.601859,
+    "lat": 43.729234,
     "lng": -79.188385,
     "type": "pothole",
     "severity": "Moderate",
@@ -12445,7 +12445,7 @@
   },
   {
     "id": "2a91790d-9eed-492d-acb1-03b2c29825e0",
-    "lat": 43.635272,
+    "lat": 43.768913,
     "lng": -79.139187,
     "type": "pothole",
     "severity": "Severe",
@@ -12481,7 +12481,7 @@
   },
   {
     "id": "e2d8ff62-cdeb-469f-9426-20348cdf4902",
-    "lat": 43.59711,
+    "lat": 43.627877,
     "lng": -79.450839,
     "type": "pothole",
     "severity": "Moderate",
@@ -12601,7 +12601,7 @@
   },
   {
     "id": "fdde5008-aa3f-454f-abf0-21e21e419224",
-    "lat": 43.615628,
+    "lat": 43.702265,
     "lng": -79.233219,
     "type": "pothole",
     "severity": "Severe",
@@ -12625,7 +12625,7 @@
   },
   {
     "id": "4738fc79-1153-478a-bfd3-0d44b97f0cac",
-    "lat": 43.624918,
+    "lat": 43.749149,
     "lng": -79.167175,
     "type": "pothole",
     "severity": "Moderate",
@@ -12649,7 +12649,7 @@
   },
   {
     "id": "f772a82d-a00f-4ce1-a2b1-06719708e7a8",
-    "lat": 43.591111,
+    "lat": 43.626123,
     "lng": -79.464853,
     "type": "pothole",
     "severity": "Severe",
@@ -12709,7 +12709,7 @@
   },
   {
     "id": "b143c82e-f1cf-46d8-b6df-a1f30e979dfe",
-    "lat": 43.658253,
+    "lat": 43.754925,
     "lng": -79.157435,
     "type": "pothole",
     "severity": "Minor",
@@ -12721,7 +12721,7 @@
   },
   {
     "id": "3520679f-c5b3-4c99-9f98-444c3baba692",
-    "lat": 43.732613,
+    "lat": 43.741115,
     "lng": -79.175628,
     "type": "pothole",
     "severity": "Moderate",
@@ -12865,7 +12865,7 @@
   },
   {
     "id": "a18d1136-004b-4044-9bf1-f362d4e1429d",
-    "lat": 43.690554,
+    "lat": 43.744211,
     "lng": -79.171939,
     "type": "pothole",
     "severity": "Moderate",
@@ -12889,7 +12889,7 @@
   },
   {
     "id": "199ecc72-20ae-41f0-a106-ca93f48ccb40",
-    "lat": 43.591403,
+    "lat": 43.712063,
     "lng": -79.215138,
     "type": "pothole",
     "severity": "Minor",
@@ -12973,7 +12973,7 @@
   },
   {
     "id": "7e8d35e0-dc6c-49e7-b41e-faf849d0e0da",
-    "lat": 43.666314,
+    "lat": 43.727952,
     "lng": -79.189625,
     "type": "pothole",
     "severity": "Severe",
@@ -12985,7 +12985,7 @@
   },
   {
     "id": "747e0438-96ab-4e0c-a88b-422635e71b83",
-    "lat": 43.693269,
+    "lat": 43.746672,
     "lng": -79.173069,
     "type": "pothole",
     "severity": "Moderate",
@@ -13021,7 +13021,7 @@
   },
   {
     "id": "88bb540b-9df3-413e-b991-3c49365cf5b4",
-    "lat": 43.66129,
+    "lat": 43.682899,
     "lng": -79.284133,
     "type": "pothole",
     "severity": "Moderate",
@@ -13045,7 +13045,7 @@
   },
   {
     "id": "2c8e1aec-56e8-494d-a493-7f0ab00add7e",
-    "lat": 43.671885,
+    "lat": 43.742826,
     "lng": -79.173714,
     "type": "pothole",
     "severity": "Severe",
@@ -13057,7 +13057,7 @@
   },
   {
     "id": "4e0190e8-8617-4a97-95fa-5dcd8ce021ee",
-    "lat": 43.630873,
+    "lat": 43.737237,
     "lng": -79.180442,
     "type": "pothole",
     "severity": "Moderate",
@@ -13081,7 +13081,7 @@
   },
   {
     "id": "36dca01a-acc9-4d6d-86bb-56358e462836",
-    "lat": 43.600628,
+    "lat": 43.710055,
     "lng": -79.218766,
     "type": "pothole",
     "severity": "Minor",
@@ -13093,7 +13093,7 @@
   },
   {
     "id": "a4a8b817-2e7c-40e8-86c4-4a05b1263560",
-    "lat": 43.677894,
+    "lat": 43.709658,
     "lng": -79.219651,
     "type": "pothole",
     "severity": "Minor",
@@ -13105,7 +13105,7 @@
   },
   {
     "id": "e6251707-507c-4d34-a71f-aabc0f9292b7",
-    "lat": 43.672352,
+    "lat": 43.689475,
     "lng": -79.272152,
     "type": "pothole",
     "severity": "Severe",
@@ -13129,7 +13129,7 @@
   },
   {
     "id": "d44c5bfc-e8be-45f9-a263-b6bab4ab9542",
-    "lat": 43.601223,
+    "lat": 43.685888,
     "lng": -79.281499,
     "type": "pothole",
     "severity": "Moderate",
@@ -13153,7 +13153,7 @@
   },
   {
     "id": "7019e8ef-7c62-4f29-8ad5-49547e4bbbba",
-    "lat": 43.596002,
+    "lat": 43.602969,
     "lng": -79.561728,
     "type": "pothole",
     "severity": "Severe",
@@ -13201,7 +13201,7 @@
   },
   {
     "id": "9deb9296-1e3a-4893-bf65-4f4ae9c7229f",
-    "lat": 43.645292,
+    "lat": 43.658363,
     "lng": -79.340585,
     "type": "pothole",
     "severity": "Severe",
@@ -13285,7 +13285,7 @@
   },
   {
     "id": "13e515f3-4eb6-4146-983d-08591557a374",
-    "lat": 43.656575,
+    "lat": 43.663795,
     "lng": -79.325809,
     "type": "pothole",
     "severity": "Moderate",
@@ -13333,7 +13333,7 @@
   },
   {
     "id": "e2182043-f055-4ef7-9968-3df29fb50e57",
-    "lat": 43.618709,
+    "lat": 43.629937,
     "lng": -79.423694,
     "type": "pothole",
     "severity": "Moderate",
@@ -13393,7 +13393,7 @@
   },
   {
     "id": "4359afec-f9ad-48b5-a96a-9672cb92133c",
-    "lat": 43.6553,
+    "lat": 43.698856,
     "lng": -79.24368,
     "type": "pothole",
     "severity": "Severe",
@@ -13417,7 +13417,7 @@
   },
   {
     "id": "3720b110-96dd-4b74-ab3c-b64c67d291e3",
-    "lat": 43.763089,
+    "lat": 43.766779,
     "lng": -79.143684,
     "type": "pothole",
     "severity": "Moderate",
@@ -13453,7 +13453,7 @@
   },
   {
     "id": "97104391-5b0b-46fd-961c-6aa883833fee",
-    "lat": 43.672776,
+    "lat": 43.720807,
     "lng": -79.198761,
     "type": "pothole",
     "severity": "Moderate",
@@ -13465,7 +13465,7 @@
   },
   {
     "id": "46a73ab6-f8de-49ac-9aa6-2b5c3201aa29",
-    "lat": 43.69621,
+    "lat": 43.747718,
     "lng": -79.17168,
     "type": "pothole",
     "severity": "Moderate",
@@ -13501,7 +13501,7 @@
   },
   {
     "id": "d732c1d0-9459-46dd-b52d-a8a3d912bc9e",
-    "lat": 43.609533,
+    "lat": 43.677119,
     "lng": -79.289238,
     "type": "pothole",
     "severity": "Moderate",
@@ -13513,7 +13513,7 @@
   },
   {
     "id": "354be957-3e46-47cb-b25c-0ae2b4e35ec1",
-    "lat": 43.708496,
+    "lat": 43.717874,
     "lng": -79.201368,
     "type": "pothole",
     "severity": "Moderate",
@@ -13537,7 +13537,7 @@
   },
   {
     "id": "26d90223-d125-4e84-9762-6497e54839c0",
-    "lat": 43.5876,
+    "lat": 43.605911,
     "lng": -79.597892,
     "type": "pothole",
     "severity": "Minor",
@@ -13549,7 +13549,7 @@
   },
   {
     "id": "1c925a7f-3dd5-4583-bfbb-620947ffca0d",
-    "lat": 43.587263,
+    "lat": 43.735959,
     "lng": -79.183242,
     "type": "pothole",
     "severity": "Moderate",
@@ -13573,7 +13573,7 @@
   },
   {
     "id": "e5fad0dd-1f07-49b6-90cb-57345bd6b5c9",
-    "lat": 43.739984,
+    "lat": 43.742642,
     "lng": -79.173909,
     "type": "pothole",
     "severity": "Severe",
@@ -13585,7 +13585,7 @@
   },
   {
     "id": "f3155c0d-757d-4767-a16e-f5ae24031ebe",
-    "lat": 43.585322,
+    "lat": 43.628679,
     "lng": -79.460203,
     "type": "pothole",
     "severity": "Moderate",
@@ -13777,7 +13777,7 @@
   },
   {
     "id": "5e6a9fa2-b963-42df-9e3e-481276810690",
-    "lat": 43.691358,
+    "lat": 43.709885,
     "lng": -79.216382,
     "type": "pothole",
     "severity": "Moderate",
@@ -13825,7 +13825,7 @@
   },
   {
     "id": "24cde25e-398b-48bd-9a10-fd1b67072ee9",
-    "lat": 43.627516,
+    "lat": 43.719668,
     "lng": -79.202265,
     "type": "pothole",
     "severity": "Minor",
@@ -13945,7 +13945,7 @@
   },
   {
     "id": "f95bb343-c111-40a9-b40e-7fe26f9888d9",
-    "lat": 43.678009,
+    "lat": 43.695107,
     "lng": -79.269321,
     "type": "pothole",
     "severity": "Minor",
@@ -13981,7 +13981,7 @@
   },
   {
     "id": "e85bd898-23ba-4be1-900e-407639357609",
-    "lat": 43.677971,
+    "lat": 43.710653,
     "lng": -79.221997,
     "type": "pothole",
     "severity": "Severe",
@@ -13993,7 +13993,7 @@
   },
   {
     "id": "f80f8031-e3ee-427d-9229-44e8946cde17",
-    "lat": 43.684887,
+    "lat": 43.74485,
     "lng": -79.174203,
     "type": "pothole",
     "severity": "Moderate",
@@ -14005,7 +14005,7 @@
   },
   {
     "id": "d75b0518-753d-49b8-be13-1e1c430af8d4",
-    "lat": 43.604368,
+    "lat": 43.710676,
     "lng": -79.216873,
     "type": "pothole",
     "severity": "Severe",
@@ -14029,7 +14029,7 @@
   },
   {
     "id": "6efc4498-94df-41df-9b2a-187e8e03b3ab",
-    "lat": 43.589148,
+    "lat": 43.724252,
     "lng": -79.195442,
     "type": "pothole",
     "severity": "Minor",
@@ -14041,7 +14041,7 @@
   },
   {
     "id": "f426b4a3-4729-48bd-bd95-6385b7d9eed5",
-    "lat": 43.6915,
+    "lat": 43.715076,
     "lng": -79.20783,
     "type": "pothole",
     "severity": "Moderate",
@@ -14137,7 +14137,7 @@
   },
   {
     "id": "bf0e4519-d16a-408b-8162-f5ab99482bc6",
-    "lat": 43.62911,
+    "lat": 43.730462,
     "lng": -79.190569,
     "type": "pothole",
     "severity": "Minor",
@@ -14185,7 +14185,7 @@
   },
   {
     "id": "94453969-28ae-474b-b2a9-8ca769ed3ba9",
-    "lat": 43.611685,
+    "lat": 43.693528,
     "lng": -79.267894,
     "type": "pothole",
     "severity": "Moderate",
@@ -14221,7 +14221,7 @@
   },
   {
     "id": "df30871a-0062-4ec4-83cd-07d1d71825ef",
-    "lat": 43.742022,
+    "lat": 43.777245,
     "lng": -79.132348,
     "type": "pothole",
     "severity": "Severe",
@@ -14257,7 +14257,7 @@
   },
   {
     "id": "8a32ac13-217a-48f3-8164-5f64a8b352f0",
-    "lat": 43.615965,
+    "lat": 43.627613,
     "lng": -79.461609,
     "type": "pothole",
     "severity": "Moderate",
@@ -14401,7 +14401,7 @@
   },
   {
     "id": "df97bfb4-eb9b-4795-a17c-34cf6cd25342",
-    "lat": 43.65026,
+    "lat": 43.688513,
     "lng": -79.274078,
     "type": "pothole",
     "severity": "Moderate",
@@ -14413,7 +14413,7 @@
   },
   {
     "id": "40f08d82-9c40-44a3-a282-8a969396f4c4",
-    "lat": 43.591014,
+    "lat": 43.631004,
     "lng": -79.445305,
     "type": "pothole",
     "severity": "Moderate",
@@ -14473,7 +14473,7 @@
   },
   {
     "id": "03843b11-3383-4bdd-8ecd-0cf592802593",
-    "lat": 43.58701,
+    "lat": 43.683084,
     "lng": -79.286157,
     "type": "pothole",
     "severity": "Moderate",
@@ -14557,7 +14557,7 @@
   },
   {
     "id": "21720fe6-782b-4aa3-9722-7e384fc4fd26",
-    "lat": 43.604081,
+    "lat": 43.721083,
     "lng": -79.202351,
     "type": "pothole",
     "severity": "Severe",
@@ -14629,7 +14629,7 @@
   },
   {
     "id": "c916ea43-6a0d-4ac4-afa9-a52002714864",
-    "lat": 43.640542,
+    "lat": 43.684048,
     "lng": -79.283744,
     "type": "pothole",
     "severity": "Severe",
@@ -14725,7 +14725,7 @@
   },
   {
     "id": "f2f0d842-e38f-4984-859a-30a373010844",
-    "lat": 43.65157,
+    "lat": 43.766952,
     "lng": -79.146307,
     "type": "pothole",
     "severity": "Minor",
@@ -14749,7 +14749,7 @@
   },
   {
     "id": "bf3b7322-44e9-4b8a-b9ca-31a637fcf973",
-    "lat": 43.581579,
+    "lat": 43.601829,
     "lng": -79.562828,
     "type": "pothole",
     "severity": "Severe",
@@ -14845,7 +14845,7 @@
   },
   {
     "id": "596ec882-84bb-435b-888b-bb05cf08c089",
-    "lat": 43.634361,
+    "lat": 43.657129,
     "lng": -79.340979,
     "type": "pothole",
     "severity": "Minor",
@@ -14917,7 +14917,7 @@
   },
   {
     "id": "eb5449a6-2f78-4d23-9da0-ac252c16915a",
-    "lat": 43.673626,
+    "lat": 43.686803,
     "lng": -79.278218,
     "type": "pothole",
     "severity": "Severe",
@@ -14989,7 +14989,7 @@
   },
   {
     "id": "12735906-3010-4443-bec5-5709792c0b48",
-    "lat": 43.607244,
+    "lat": 43.632405,
     "lng": -79.416168,
     "type": "pothole",
     "severity": "Minor",
@@ -15001,7 +15001,7 @@
   },
   {
     "id": "895d123d-3d6d-4cd6-a5a6-e3b19a98a52f",
-    "lat": 43.592703,
+    "lat": 43.604076,
     "lng": -79.611116,
     "type": "pothole",
     "severity": "Minor",
@@ -15085,7 +15085,7 @@
   },
   {
     "id": "215294b4-ef7d-45e7-a758-9c85f54fda7b",
-    "lat": 43.608461,
+    "lat": 43.665603,
     "lng": -79.311336,
     "type": "pothole",
     "severity": "Minor",
@@ -15121,7 +15121,7 @@
   },
   {
     "id": "5eeec28a-c794-4850-b408-95c2103a02c9",
-    "lat": 43.692252,
+    "lat": 43.699805,
     "lng": -79.243174,
     "type": "pothole",
     "severity": "Severe",
@@ -15229,7 +15229,7 @@
   },
   {
     "id": "3bbfb40a-33d2-4cd4-ad30-45e8e6abe2d9",
-    "lat": 43.662167,
+    "lat": 43.695843,
     "lng": -79.256078,
     "type": "pothole",
     "severity": "Minor",
@@ -15241,7 +15241,7 @@
   },
   {
     "id": "fffa4ef8-2785-4732-93d7-f823bb810f28",
-    "lat": 43.722504,
+    "lat": 43.749382,
     "lng": -79.168979,
     "type": "pothole",
     "severity": "Moderate",
@@ -15277,7 +15277,7 @@
   },
   {
     "id": "c4fa5a4c-9041-4159-9660-3667e37cec35",
-    "lat": 43.670313,
+    "lat": 43.696394,
     "lng": -79.264702,
     "type": "pothole",
     "severity": "Moderate",
@@ -15337,7 +15337,7 @@
   },
   {
     "id": "ad8e8ea2-88b9-4837-b50d-c33ef59308da",
-    "lat": 43.613682,
+    "lat": 43.62578,
     "lng": -79.473999,
     "type": "pothole",
     "severity": "Moderate",
@@ -15433,7 +15433,7 @@
   },
   {
     "id": "3df94c44-630b-4932-8bd3-1bc0e14dad73",
-    "lat": 43.698822,
+    "lat": 43.754372,
     "lng": -79.163793,
     "type": "pothole",
     "severity": "Moderate",
@@ -15481,7 +15481,7 @@
   },
   {
     "id": "1f952e2f-eef5-4661-9d92-dba281507f7b",
-    "lat": 43.612634,
+    "lat": 43.661012,
     "lng": -79.339835,
     "type": "pothole",
     "severity": "Severe",
@@ -15577,7 +15577,7 @@
   },
   {
     "id": "d4a20c0e-231e-4b25-ad73-b20de72d63ac",
-    "lat": 43.726069,
+    "lat": 43.764392,
     "lng": -79.150541,
     "type": "pothole",
     "severity": "Minor",
@@ -15661,7 +15661,7 @@
   },
   {
     "id": "85d0b3ac-90e0-46f2-8fea-87a29b73c86a",
-    "lat": 43.586281,
+    "lat": 43.634164,
     "lng": -79.405861,
     "type": "pothole",
     "severity": "Moderate",
@@ -15757,7 +15757,7 @@
   },
   {
     "id": "fd4b541a-50ce-49e4-9c18-1aae8c268a56",
-    "lat": 43.652673,
+    "lat": 43.763069,
     "lng": -79.147897,
     "type": "pothole",
     "severity": "Moderate",
@@ -15781,7 +15781,7 @@
   },
   {
     "id": "e9682c13-c710-4adb-855f-320c93c062f4",
-    "lat": 43.634933,
+    "lat": 43.764729,
     "lng": -79.145723,
     "type": "pothole",
     "severity": "Moderate",
@@ -15805,7 +15805,7 @@
   },
   {
     "id": "26f75939-b94f-4c83-b0ce-e4a38f371f7e",
-    "lat": 43.705456,
+    "lat": 43.712128,
     "lng": -79.213608,
     "type": "pothole",
     "severity": "Severe",
@@ -15853,7 +15853,7 @@
   },
   {
     "id": "e9c82800-b1d3-4f60-acfa-33725bac8396",
-    "lat": 43.617706,
+    "lat": 43.65449,
     "lng": -79.347325,
     "type": "pothole",
     "severity": "Severe",
@@ -15901,7 +15901,7 @@
   },
   {
     "id": "13933b0d-ad6f-4554-9f26-7dcd472453c1",
-    "lat": 43.580553,
+    "lat": 43.639683,
     "lng": -79.386501,
     "type": "pothole",
     "severity": "Minor",
@@ -15949,7 +15949,7 @@
   },
   {
     "id": "28340da0-72a8-4d3d-a7c1-d36483ea5722",
-    "lat": 43.62784,
+    "lat": 43.702442,
     "lng": -79.243697,
     "type": "pothole",
     "severity": "Moderate",
@@ -16009,7 +16009,7 @@
   },
   {
     "id": "3e44d23b-882f-4e6b-8b23-59cce65869b4",
-    "lat": 43.686943,
+    "lat": 43.727915,
     "lng": -79.193741,
     "type": "pothole",
     "severity": "Moderate",
@@ -16081,7 +16081,7 @@
   },
   {
     "id": "cf990d8d-dbed-4b4f-b3ca-c6bd732e36cd",
-    "lat": 43.696788,
+    "lat": 43.775859,
     "lng": -79.132398,
     "type": "pothole",
     "severity": "Severe",
@@ -16093,7 +16093,7 @@
   },
   {
     "id": "d70f875f-62b0-4fdf-b1e2-373fe8b913a1",
-    "lat": 43.677597,
+    "lat": 43.700015,
     "lng": -79.248079,
     "type": "pothole",
     "severity": "Minor",
@@ -16129,7 +16129,7 @@
   },
   {
     "id": "df9118a7-dcdf-460a-8939-b21168f9bcb9",
-    "lat": 43.600099,
+    "lat": 43.617178,
     "lng": -79.497508,
     "type": "pothole",
     "severity": "Severe",
@@ -16141,7 +16141,7 @@
   },
   {
     "id": "ced4aaa8-b9ae-4b2b-b604-5e2eedd2a165",
-    "lat": 43.606116,
+    "lat": 43.637678,
     "lng": -79.384816,
     "type": "pothole",
     "severity": "Minor",
@@ -16165,7 +16165,7 @@
   },
   {
     "id": "4e482b6d-593d-4dc8-b69c-ea27974fece5",
-    "lat": 43.594697,
+    "lat": 43.629482,
     "lng": -79.456542,
     "type": "pothole",
     "severity": "Moderate",
@@ -16189,7 +16189,7 @@
   },
   {
     "id": "560bdcd2-7e38-4040-a8dc-8743d0a43246",
-    "lat": 43.596385,
+    "lat": 43.606735,
     "lng": -79.603662,
     "type": "pothole",
     "severity": "Moderate",
@@ -16201,7 +16201,7 @@
   },
   {
     "id": "11aba9e1-30c2-4521-8808-95de833b9cff",
-    "lat": 43.614435,
+    "lat": 43.749296,
     "lng": -79.169633,
     "type": "pothole",
     "severity": "Moderate",
@@ -16213,7 +16213,7 @@
   },
   {
     "id": "a373eb12-5f79-404f-8416-8a28da738752",
-    "lat": 43.597763,
+    "lat": 43.680681,
     "lng": -79.287993,
     "type": "pothole",
     "severity": "Moderate",
@@ -16225,7 +16225,7 @@
   },
   {
     "id": "6451923e-ffc8-4659-ab0d-20fe518ccb5a",
-    "lat": 43.605874,
+    "lat": 43.69819,
     "lng": -79.251538,
     "type": "pothole",
     "severity": "Severe",
@@ -16237,7 +16237,7 @@
   },
   {
     "id": "c5b55f9e-5d34-4dd9-baad-df530ceef7f1",
-    "lat": 43.582864,
+    "lat": 43.629162,
     "lng": -79.431879,
     "type": "pothole",
     "severity": "Moderate",
@@ -16249,7 +16249,7 @@
   },
   {
     "id": "ad62ff14-0907-480b-93a3-fc970209487e",
-    "lat": 43.671696,
+    "lat": 43.756114,
     "lng": -79.160583,
     "type": "pothole",
     "severity": "Moderate",
@@ -16273,7 +16273,7 @@
   },
   {
     "id": "4e057f15-fb3d-486d-bae8-c5dfdfd7a85d",
-    "lat": 43.632276,
+    "lat": 43.658346,
     "lng": -79.339126,
     "type": "pothole",
     "severity": "Moderate",
@@ -16345,7 +16345,7 @@
   },
   {
     "id": "ad758ad6-032e-486b-8725-9599e8f9504b",
-    "lat": 43.6341,
+    "lat": 43.744752,
     "lng": -79.174835,
     "type": "pothole",
     "severity": "Moderate",
@@ -16357,7 +16357,7 @@
   },
   {
     "id": "0a67ea29-c58f-4938-a91e-4cffe1bd9894",
-    "lat": 43.767591,
+    "lat": 43.773229,
     "lng": -79.138858,
     "type": "pothole",
     "severity": "Moderate",
@@ -16393,7 +16393,7 @@
   },
   {
     "id": "e2f026ea-d156-4468-94a6-c94f4d463e29",
-    "lat": 43.642174,
+    "lat": 43.666474,
     "lng": -79.314279,
     "type": "pothole",
     "severity": "Severe",
@@ -16405,7 +16405,7 @@
   },
   {
     "id": "d3efb6c9-3176-4265-85f2-48d8fa9b5960",
-    "lat": 43.669509,
+    "lat": 43.696098,
     "lng": -79.25736,
     "type": "pothole",
     "severity": "Severe",
@@ -16429,7 +16429,7 @@
   },
   {
     "id": "275e2cd3-254d-4067-9f8f-016a69319372",
-    "lat": 43.632489,
+    "lat": 43.663555,
     "lng": -79.333014,
     "type": "debris",
     "severity": "Minor",
@@ -16465,7 +16465,7 @@
   },
   {
     "id": "7783f80b-d26a-447c-af20-8f51e3e1d360",
-    "lat": 43.585668,
+    "lat": 43.680526,
     "lng": -79.288048,
     "type": "debris",
     "severity": "Moderate",
@@ -16501,7 +16501,7 @@
   },
   {
     "id": "9dd1509e-e0d1-4aea-b50f-5ee4488c3115",
-    "lat": 43.597652,
+    "lat": 43.599265,
     "lng": -79.549228,
     "type": "debris",
     "severity": "Minor",
@@ -16525,7 +16525,7 @@
   },
   {
     "id": "83856661-9129-4ace-8756-00c5c9d1bb66",
-    "lat": 43.592473,
+    "lat": 43.664233,
     "lng": -79.318146,
     "type": "debris",
     "severity": "Moderate",
@@ -16669,7 +16669,7 @@
   },
   {
     "id": "5e541fe1-e729-4ddd-82da-b21508ab19fe",
-    "lat": 43.602253,
+    "lat": 43.715381,
     "lng": -79.207124,
     "type": "debris",
     "severity": "Minor",
@@ -16705,7 +16705,7 @@
   },
   {
     "id": "4c5cc0f7-3f40-4f3c-8695-23eb33f13a9a",
-    "lat": 43.654105,
+    "lat": 43.691466,
     "lng": -79.274235,
     "type": "debris",
     "severity": "Minor",
@@ -16753,7 +16753,7 @@
   },
   {
     "id": "4c0ccc0b-ed28-48a5-8665-4c43bda37f37",
-    "lat": 43.64127,
+    "lat": 43.699252,
     "lng": -79.252923,
     "type": "debris",
     "severity": "Moderate",
@@ -16777,7 +16777,7 @@
   },
   {
     "id": "181a2499-5e0a-41c1-8f7d-0e3cd143790e",
-    "lat": 43.630719,
+    "lat": 43.699367,
     "lng": -79.242636,
     "type": "debris",
     "severity": "Minor",
@@ -16801,7 +16801,7 @@
   },
   {
     "id": "7306c8df-0f65-4441-b7b4-c75849a1c68a",
-    "lat": 43.582614,
+    "lat": 43.710004,
     "lng": -79.222903,
     "type": "debris",
     "severity": "Minor",
@@ -16825,7 +16825,7 @@
   },
   {
     "id": "93022d1f-9518-455f-b7d3-142866c519f2",
-    "lat": 43.586275,
+    "lat": 43.705359,
     "lng": -79.235175,
     "type": "debris",
     "severity": "Minor",
@@ -16861,7 +16861,7 @@
   },
   {
     "id": "61651dac-66c8-4dd4-aa1d-4fa06354ad23",
-    "lat": 43.609332,
+    "lat": 43.659083,
     "lng": -79.340938,
     "type": "debris",
     "severity": "Moderate",
@@ -16873,7 +16873,7 @@
   },
   {
     "id": "b1357535-5a39-49be-9e26-4e17c726df33",
-    "lat": 43.608165,
+    "lat": 43.654446,
     "lng": -79.349076,
     "type": "debris",
     "severity": "Severe",
@@ -16957,7 +16957,7 @@
   },
   {
     "id": "168aa9f1-136e-424a-92a9-5c14cf0ce552",
-    "lat": 43.58201,
+    "lat": 43.600969,
     "lng": -79.550081,
     "type": "debris",
     "severity": "Severe",
@@ -16969,7 +16969,7 @@
   },
   {
     "id": "5b463a4c-e965-47c4-a8e2-39fe7f1400ea",
-    "lat": 43.721981,
+    "lat": 43.742533,
     "lng": -79.173952,
     "type": "debris",
     "severity": "Minor",
@@ -17005,7 +17005,7 @@
   },
   {
     "id": "263c7158-0ab1-465a-acd2-9c4840dc3ff8",
-    "lat": 43.647266,
+    "lat": 43.737449,
     "lng": -79.179017,
     "type": "debris",
     "severity": "Minor",
@@ -17017,7 +17017,7 @@
   },
   {
     "id": "20f7a1db-cdf7-421d-a385-6e9bba61d4da",
-    "lat": 43.62953,
+    "lat": 43.660317,
     "lng": -79.341379,
     "type": "debris",
     "severity": "Moderate",
@@ -17053,7 +17053,7 @@
   },
   {
     "id": "f2a22001-6e25-4b5d-8ef1-ef9e38780619",
-    "lat": 43.729262,
+    "lat": 43.776702,
     "lng": -79.132295,
     "type": "debris",
     "severity": "Severe",
@@ -17077,7 +17077,7 @@
   },
   {
     "id": "171133b2-1ed0-4d35-bcab-64284090fbdf",
-    "lat": 43.599763,
+    "lat": 43.685755,
     "lng": -79.279702,
     "type": "debris",
     "severity": "Minor",
@@ -17101,7 +17101,7 @@
   },
   {
     "id": "1909152e-6450-4498-a766-9aa1bf5ff076",
-    "lat": 43.66832,
+    "lat": 43.699757,
     "lng": -79.253149,
     "type": "debris",
     "severity": "Moderate",
@@ -17113,7 +17113,7 @@
   },
   {
     "id": "54ce98ef-affe-40a8-a671-32a095109049",
-    "lat": 43.645419,
+    "lat": 43.759084,
     "lng": -79.154491,
     "type": "debris",
     "severity": "Moderate",
@@ -17197,7 +17197,7 @@
   },
   {
     "id": "d0307dba-729e-4752-a877-bf22795ed6f6",
-    "lat": 43.604674,
+    "lat": 43.635194,
     "lng": -79.413375,
     "type": "debris",
     "severity": "Minor",
@@ -17281,7 +17281,7 @@
   },
   {
     "id": "baf4e5bb-bde1-49bc-9b3e-ba92e7d280e9",
-    "lat": 43.741695,
+    "lat": 43.773008,
     "lng": -79.13828,
     "type": "debris",
     "severity": "Moderate",
